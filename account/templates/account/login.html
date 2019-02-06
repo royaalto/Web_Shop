@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+
+{% block title %}Login view{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'account/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'reset.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="page-container">
+    {% block menu %}
+    {% include "menu.html" %}
+    {% endblock %}
+
+    {% block header %}
+    {% include "header.html" %}
+    {% endblock %}
+
+    {% block navigation %}
+    {% include "navigation.html" %}
+    {% endblock %}
+
+    <div id="login-container" class="container">
+
+
+    <div class="login-container">
+        <h1>Login</h1>
+
+        <div id="registered-user" class="login-content col-sm-6">
+            <h2 class="login-sub-h">Registered User</h2>
+            <p>If you have registered account, login here please.</p>
+            <div class="form-content">
+                <form action="{{ form_action }}" method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                    {% endfor %}
+                    {% if form_message %}
+                    <div class="alert {{ message_type }}">{{ form_message }}</div>
+                    {% endif %}
+                    <div class="form-actions">
+                        <!--div class=" links"><a class="forgot-password" href="#">Forgot you password?</a></div-->
+
+                        <div class="actions">
+                            <input type="submit" class="btn btn-lg btn-success" value="Login"/>
+                        </div>
+                        <br>
+                        <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="new-user" class="login-content col-sm-6">
+            <h2 class="login-sub-h">New User</h2>
+            <p>We have two types of account for new user; player and developer.
+                As player you can buy and play games made by other user.
+                And as developer you can develop and release your game in our Website
+            </p>
+            <a href="{{'/account/register/'}}"><button class="btn btn-lg btn-success">Register</button></a>
+        </div>
+    </div>
+
+    </div>
+
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock %}
+
+</div>
+
+{% endblock %}

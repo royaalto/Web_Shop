@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://plus.cs.hut.fi/wsd/2017-2018/project/description/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>A+ Web Software Development: 9.1 Instructions</title>
+
+        <script async="" src="./A+ Web Software Development_ 9.1 Instructions_files/analytics.js"></script><script src="./A+ Web Software Development_ 9.1 Instructions_files/jquery-1.11.3.min.js"></script>
+
+        <link href="./A+ Web Software Development_ 9.1 Instructions_files/bootstrap.min.css" rel="stylesheet">
+        <script src="./A+ Web Software Development_ 9.1 Instructions_files/bootstrap.min.js"></script>
+
+        <link href="./A+ Web Software Development_ 9.1 Instructions_files/github.min.css" rel="stylesheet">
+        <script src="./A+ Web Software Development_ 9.1 Instructions_files/highlight.min.js"></script>
+
+        <script src="./A+ Web Software Development_ 9.1 Instructions_files/clipboard.min.js"></script>
+
+        <link rel="stylesheet" href="./A+ Web Software Development_ 9.1 Instructions_files/main.css">
+        <link rel="stylesheet" href="./A+ Web Software Development_ 9.1 Instructions_files/submission.css">
+        <script src="./A+ Web Software Development_ 9.1 Instructions_files/aplus.js"></script>
+
+        
+
+
+            
+        
+
+
+
+<script src="./A+ Web Software Development_ 9.1 Instructions_files/poll.js"></script>
+<script src="./A+ Web Software Development_ 9.1 Instructions_files/group.js"></script>
+<script src="./A+ Web Software Development_ 9.1 Instructions_files/chapter.js"></script>
+<script>
+// Visualize loading in case of slow POST operations.
+/*$(function() {
+    var forms = $("#exercise-page-content").find("form:not([data-aplus-exercise] form)");
+    forms.on("submit", function(event) {
+        $("#submit-progress").removeClass("hide");
+    });
+});*/
+
+// Add an Ajax exercise event listener to refresh the info column.
+window.addEventListener("message", function (event) {
+    if (event.data.type === "a-plus-refresh-stats") {
+        $("#submit-progress").addClass("hide");
+        var $stats = $("#exercise-info"),
+            url = $stats.data("url");
+        $stats.load(url, function() {
+            $stats.find('[data-toggle="tooltip"]').tooltip();
+        });
+    }
+});
+</script>
+
+
+
+        <!-- Some favicons courtesy of http://realfavicongenerator.net/ -->
+        <link rel="apple-touch-icon" sizes="57x57" href="https://plus.cs.hut.fi/static/favicons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="https://plus.cs.hut.fi/static/favicons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://plus.cs.hut.fi/static/favicons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="https://plus.cs.hut.fi/static/favicons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="https://plus.cs.hut.fi/static/favicons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://plus.cs.hut.fi/static/favicons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://plus.cs.hut.fi/static/favicons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://plus.cs.hut.fi/static/favicons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://plus.cs.hut.fi/static/favicons/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="https://plus.cs.hut.fi/static/favicons/favicon-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="https://plus.cs.hut.fi/static/favicons/favicon-160x160.png" sizes="160x160">
+        <link rel="icon" type="image/png" href="https://plus.cs.hut.fi/static/favicons/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="https://plus.cs.hut.fi/static/favicons/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="https://plus.cs.hut.fi/static/favicons/favicon-32x32.png" sizes="32x32">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-TileImage" content="/static/mstile-144x144.png">
+    </head>
+    <body class="internal-student lang-fi" data-view-tag="exercise">
+        <div class="page-wrap">
+            <nav class="topbar navbar navbar-inverse navbar-static-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            
+                            
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand hidden-xs" href="https://plus.cs.hut.fi/">A+</a>
+                        <span class="navbar-brand visible-xs">
+                        A+ &nbsp; Web Software Development
+                        </span>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+                        <ul class="nav navbar-nav hidden-xs">
+                            <li role="presentation" class="dropdown">
+                                <a href="https://plus.cs.hut.fi/wsd/2017-2018/project/description/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    
+                                    CS-C3170 Web Software Development
+                                    
+                                    
+                                    <span class="caret"></span>
+                                </a>
+                                
+<ul class="dropdown-menu">
+	
+	
+	<li role="presentation">
+		<a href="https://plus.cs.hut.fi/wsd/2017-2018/">
+			CS-C3170 Web Software Development: 2017-2018
+		</a>
+	</li>
+	
+	
+	
+	<li role="presentation">
+		<a href="https://plus.cs.hut.fi/y2/2015/">
+			CS-A1121 Ohjelmoinnin peruskurssi Y2: 2015
+		</a>
+	</li>
+	
+	
+	
+	<li role="presentation">
+		<a href="https://plus.cs.hut.fi/trak/2014/">
+			T-106.1220 Tietorakenteet ja algoritmit: 2014
+		</a>
+	</li>
+	
+	
+</ul>
+
+                            </li>
+                        </ul>
+                        <ul class="user-menu nav navbar-nav navbar-right hidden-xs">
+                            
+                            
+
+
+
+                            
+
+                            <li role="presentation" class="menu-profile">
+                                <a href="https://plus.cs.hut.fi/accounts/accounts/">
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                    panl1@aalto.fi
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="https://plus.cs.hut.fi/accounts/logout/">
+                                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                                    Log out
+                                </a>
+                            </li>
+                            
+                        </ul>
+
+                        
+                        <ul class="nav navbar-nav visible-xs">
+                            
+
+                            
+
+
+
+                            
+
+
+
+
+
+
+
+
+
+<li role="presentation" class="header"><h4>Course</h4></li>
+<li role="presentation" class="menu-home">
+	<a href="https://plus.cs.hut.fi/wsd/2017-2018/">
+		<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+		CS-C3170
+	</a>
+</li>
+<li role="presentation" class="menu-toc">
+	<a href="https://plus.cs.hut.fi/wsd/2017-2018/toc/">
+		<span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+		Course materials
+	</a>
+</li>
+<li role="presentation" class="menu-results">
+	<a href="https://plus.cs.hut.fi/wsd/2017-2018/user/results/">
+		<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+		Exercise results
+	</a>
+</li>
+
+
+
+
+
+
+
+
+<li role="presentation">
+	<a href="https://plus.cs.hut.fi/wsd/2017-2018/lti-login/147/" target="_blank">
+		
+		<span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+		
+		Piazza Q&amp;A
+	</a>
+</li>
+
+
+
+<li role="presentation">
+	<a href="https://plus.cs.hut.fi/wsd/2017-2018/lti-login/149/" target="_blank">
+		
+		<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+		
+		Queue (exercise groups)
+	</a>
+</li>
+
+
+
+<li role="presentation">
+	<a href="https://grader.cs.hut.fi/static/wsd/lectures/">
+		
+		<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+		
+		Lecture slides
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+                            <li role="presentation" class="header"><h4>Site</h4></li>
+                            <li role="presentation">
+                                <a href="https://plus.cs.hut.fi/">
+                                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                                    Home
+                                </a>
+                            </li>
+                            
+<ul class="dropdown-menu">
+	
+	
+	<li role="presentation">
+		<a href="https://plus.cs.hut.fi/wsd/2017-2018/">
+			CS-C3170 Web Software Development: 2017-2018
+		</a>
+	</li>
+	
+	
+	
+	<li role="presentation">
+		<a href="https://plus.cs.hut.fi/y2/2015/">
+			CS-A1121 Ohjelmoinnin peruskurssi Y2: 2015
+		</a>
+	</li>
+	
+	
+	
+	<li role="presentation">
+		<a href="https://plus.cs.hut.fi/trak/2014/">
+			T-106.1220 Tietorakenteet ja algoritmit: 2014
+		</a>
+	</li>
+	
+	
+</ul>
+
+                            
+                            <li role="presentation">
+                                <a href="https://plus.cs.hut.fi/accounts/accounts/">
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            	    panl1@aalto.fi
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="https://plus.cs.hut.fi/accounts/logout/">
+                                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                            	    Log out
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="site-content container-fluid">
+                
+                
+
+                
+<div class="row">
+    <div class="col-sm-2 hidden-xs">
+        <nav class="course-menu fixed" id="main-course-menu">
+            <ul class="nav nav-pills nav-stacked">
+                
+
+
+
+
+
+
+
+<li role="presentation" class="header"><h4>Course</h4></li>
+<li role="presentation" class="menu-home">
+	<a href="https://plus.cs.hut.fi/wsd/2017-2018/">
+		<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+		CS-C3170
+	</a>
+</li>
+<li role="presentation" class="menu-toc">
+	<a href="https://plus.cs.hut.fi/wsd/2017-2018/toc/">
+		<span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+		Course materials
+	</a>
+</li>
+<li role="presentation" class="menu-results">
+	<a href="https://plus.cs.hut.fi/wsd/2017-2018/user/results/">
+		<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+		Exercise results
+	</a>
+</li>
+
+
+
+
+
+
+
+
+<li role="presentation">
+	<a href="https://plus.cs.hut.fi/wsd/2017-2018/lti-login/147/" target="_blank">
+		
+		<span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+		
+		Piazza Q&amp;A
+	</a>
+</li>
+
+
+
+<li role="presentation">
+	<a href="https://plus.cs.hut.fi/wsd/2017-2018/lti-login/149/" target="_blank">
+		
+		<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+		
+		Queue (exercise groups)
+	</a>
+</li>
+
+
+
+<li role="presentation">
+	<a href="https://grader.cs.hut.fi/static/wsd/lectures/">
+		
+		<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+		
+		Lecture slides
+	</a>
+</li>
+
+
+
+
+
+
+
+
+            </ul>
+        </nav>
+
+        <!--div class="calendar-view">
+            <h4>Calendar</h4>
+            <div id="study-calendar"></div>
+            <p>
+                <a href="/wsd/2017-2018/user/export-calendar/">
+                    <small>Download calendar (ics)</small>
+                </a>
+            </p>
+        </div-->
+    </div>
+    <div class="col-sm-10">
+        
+
+
+
+<nav class="row siblings">
+
+    
+
+    
+    
+    
+    <a href="https://plus.cs.hut.fi/wsd/2017-2018/project/" class="pull-left btn btn-link">
+        « 9. Project instructions
+    </a>
+    
+    
+
+    <span class="hidden-md hidden-sm hidden-xs" style="display: block; margin: auto; text-align: center;">
+        <a href="https://plus.cs.hut.fi/wsd/2017-2018/toc/">
+            Course materials
+        </a>
+    </span>
+
+</nav>
+
+
+        
+        <ol class="breadcrumb">
+            
+
+            <li><a href="https://plus.cs.hut.fi/wsd/2017-2018/">CS-C3170</a></li>
+            
+<li><a href="https://plus.cs.hut.fi/wsd/2017-2018/project/">9. Project instructions</a></li>
+
+
+<li class="active">9.1 Instructions</li>
+
+
+        </ol>
+        
+        <div class="row">
+            
+<div class="col-lg-9 exercise-column">
+
+  
+
+  
+
+
+
+<div id="exercise-page-content">
+    <div id="header">Copy of WSD Project Description (CS-C170 2017-2018)</div><div id="contents"><style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?kit=cGvuclDC_Z1vE_cnVEU6Ae_NZQ7StBcqH_vXVqoPMX0');ul.lst-kix_v5j3xgutpoaa-0{list-style-type:none}.lst-kix_hso0umkddkab-8>li:before{content:"\0025a0  "}ul.lst-kix_v5j3xgutpoaa-1{list-style-type:none}ul.lst-kix_v5j3xgutpoaa-2{list-style-type:none}ul.lst-kix_v5j3xgutpoaa-3{list-style-type:none}.lst-kix_hso0umkddkab-7>li:before{content:"\0025cb  "}ul.lst-kix_v5j3xgutpoaa-8{list-style-type:none}.lst-kix_hso0umkddkab-4>li:before{content:"\0025cb  "}ul.lst-kix_v5j3xgutpoaa-4{list-style-type:none}.lst-kix_hso0umkddkab-6>li:before{content:"\0025cf  "}ul.lst-kix_v5j3xgutpoaa-5{list-style-type:none}ul.lst-kix_v5j3xgutpoaa-6{list-style-type:none}.lst-kix_hso0umkddkab-5>li:before{content:"\0025a0  "}ul.lst-kix_v5j3xgutpoaa-7{list-style-type:none}.lst-kix_hso0umkddkab-0>li:before{content:"\0025cf  "}.lst-kix_szsas7qp76jx-7>li:before{content:"\0025cb  "}.lst-kix_szsas7qp76jx-6>li:before{content:"\0025cf  "}.lst-kix_szsas7qp76jx-8>li:before{content:"\0025a0  "}.lst-kix_hso0umkddkab-3>li:before{content:"\0025cf  "}.lst-kix_szsas7qp76jx-3>li:before{content:"\0025cf  "}.lst-kix_lbu5k2sy6tm6-6>li:before{content:"\0025cf  "}.lst-kix_szsas7qp76jx-4>li:before{content:"\0025cb  "}.lst-kix_hso0umkddkab-2>li:before{content:"\0025a0  "}.lst-kix_szsas7qp76jx-5>li:before{content:"\0025a0  "}.lst-kix_lbu5k2sy6tm6-7>li:before{content:"\0025cb  "}.lst-kix_lbu5k2sy6tm6-8>li:before{content:"\0025a0  "}.lst-kix_hso0umkddkab-1>li:before{content:"\0025cb  "}.lst-kix_u77qi7lsfl4d-2>li:before{content:"\0025a0  "}.lst-kix_u77qi7lsfl4d-3>li:before{content:"\0025cf  "}.lst-kix_u77qi7lsfl4d-0>li:before{content:"\0025cf  "}.lst-kix_u77qi7lsfl4d-4>li:before{content:"\0025cb  "}.lst-kix_u77qi7lsfl4d-1>li:before{content:"\0025cb  "}.lst-kix_bk8gscuwxuzi-5>li{counter-increment:lst-ctn-kix_bk8gscuwxuzi-5}ol.lst-kix_bk8gscuwxuzi-4.start{counter-reset:lst-ctn-kix_bk8gscuwxuzi-4 0}.lst-kix_szsas7qp76jx-0>li:before{content:"\0025cf  "}.lst-kix_szsas7qp76jx-2>li:before{content:"\0025a0  "}.lst-kix_szsas7qp76jx-1>li:before{content:"\0025cb  "}.lst-kix_u77qi7lsfl4d-8>li:before{content:"\0025a0  "}.lst-kix_u77qi7lsfl4d-6>li:before{content:"\0025cf  "}.lst-kix_u77qi7lsfl4d-7>li:before{content:"\0025cb  "}.lst-kix_u77qi7lsfl4d-5>li:before{content:"\0025a0  "}.lst-kix_oyzbjs17clv6-7>li:before{content:"\0025cb  "}.lst-kix_rnjvm95db21x-4>li:before{content:"\0025cb  "}.lst-kix_rnjvm95db21x-6>li:before{content:"\0025cf  "}.lst-kix_rhs1mat6mkey-6>li:before{content:"\0025cf  "}.lst-kix_rhs1mat6mkey-8>li:before{content:"\0025a0  "}.lst-kix_oyzbjs17clv6-5>li:before{content:"\0025a0  "}.lst-kix_oyzbjs17clv6-3>li:before{content:"\0025cf  "}.lst-kix_rnjvm95db21x-0>li:before{content:"\0025cf  "}.lst-kix_rnjvm95db21x-2>li:before{content:"\0025a0  "}.lst-kix_rnjvm95db21x-8>li:before{content:"\0025a0  "}.lst-kix_rhs1mat6mkey-2>li:before{content:"\0025a0  "}.lst-kix_oyzbjs17clv6-1>li:before{content:"\0025cb  "}.lst-kix_bk8gscuwxuzi-1>li{counter-increment:lst-ctn-kix_bk8gscuwxuzi-1}.lst-kix_rhs1mat6mkey-4>li:before{content:"\0025cb  "}ul.lst-kix_nw6zz2tsgbnd-5{list-style-type:none}.lst-kix_nw6zz2tsgbnd-2>li:before{content:"\0025a0  "}ul.lst-kix_nw6zz2tsgbnd-4{list-style-type:none}ul.lst-kix_nw6zz2tsgbnd-7{list-style-type:none}ul.lst-kix_nw6zz2tsgbnd-6{list-style-type:none}.lst-kix_nw6zz2tsgbnd-0>li:before{content:"\0025cf  "}.lst-kix_nw6zz2tsgbnd-4>li:before{content:"\0025cb  "}ul.lst-kix_nw6zz2tsgbnd-8{list-style-type:none}ul.lst-kix_nw6zz2tsgbnd-1{list-style-type:none}ul.lst-kix_nw6zz2tsgbnd-0{list-style-type:none}ul.lst-kix_nw6zz2tsgbnd-3{list-style-type:none}ul.lst-kix_nw6zz2tsgbnd-2{list-style-type:none}.lst-kix_rhs1mat6mkey-0>li:before{content:"\0025cf  "}.lst-kix_nw6zz2tsgbnd-8>li:before{content:"\0025a0  "}.lst-kix_3gtj2vyiuame-7>li:before{content:"\0025cb  "}.lst-kix_nw6zz2tsgbnd-6>li:before{content:"\0025cf  "}ol.lst-kix_bk8gscuwxuzi-5{list-style-type:none}ol.lst-kix_bk8gscuwxuzi-6{list-style-type:none}ol.lst-kix_bk8gscuwxuzi-7{list-style-type:none}ol.lst-kix_bk8gscuwxuzi-8{list-style-type:none}ol.lst-kix_bk8gscuwxuzi-1{list-style-type:none}ul.lst-kix_oyzbjs17clv6-8{list-style-type:none}ol.lst-kix_bk8gscuwxuzi-2{list-style-type:none}ul.lst-kix_oyzbjs17clv6-7{list-style-type:none}ol.lst-kix_bk8gscuwxuzi-3{list-style-type:none}ol.lst-kix_bk8gscuwxuzi-4{list-style-type:none}ul.lst-kix_oyzbjs17clv6-4{list-style-type:none}ul.lst-kix_oyzbjs17clv6-3{list-style-type:none}ul.lst-kix_oyzbjs17clv6-6{list-style-type:none}ol.lst-kix_bk8gscuwxuzi-0{list-style-type:none}ul.lst-kix_oyzbjs17clv6-5{list-style-type:none}ul.lst-kix_oyzbjs17clv6-0{list-style-type:none}.lst-kix_bk8gscuwxuzi-3>li:before{content:"" counter(lst-ctn-kix_bk8gscuwxuzi-3,decimal) ". "}ul.lst-kix_oyzbjs17clv6-2{list-style-type:none}ul.lst-kix_oyzbjs17clv6-1{list-style-type:none}.lst-kix_bk8gscuwxuzi-1>li:before{content:"" counter(lst-ctn-kix_bk8gscuwxuzi-1,lower-latin) ". "}.lst-kix_bk8gscuwxuzi-7>li:before{content:"" counter(lst-ctn-kix_bk8gscuwxuzi-7,lower-latin) ". "}.lst-kix_lbu5k2sy6tm6-5>li:before{content:"\0025a0  "}.lst-kix_g1n6jxlj1l11-6>li:before{content:"\0025cf  "}ol.lst-kix_bk8gscuwxuzi-6.start{counter-reset:lst-ctn-kix_bk8gscuwxuzi-6 0}.lst-kix_lbu5k2sy6tm6-3>li:before{content:"\0025cf  "}.lst-kix_g1n6jxlj1l11-4>li:before{content:"\0025cb  "}.lst-kix_bk8gscuwxuzi-5>li:before{content:"" counter(lst-ctn-kix_bk8gscuwxuzi-5,lower-roman) ". "}.lst-kix_lbu5k2sy6tm6-1>li:before{content:"\0025cb  "}.lst-kix_g1n6jxlj1l11-8>li:before{content:"\0025a0  "}.lst-kix_bk8gscuwxuzi-6>li{counter-increment:lst-ctn-kix_bk8gscuwxuzi-6}ul.lst-kix_uhqtmz33344-8{list-style-type:none}ul.lst-kix_uhqtmz33344-7{list-style-type:none}ul.lst-kix_uhqtmz33344-6{list-style-type:none}ul.lst-kix_uhqtmz33344-5{list-style-type:none}ul.lst-kix_uhqtmz33344-4{list-style-type:none}ul.lst-kix_uhqtmz33344-3{list-style-type:none}ul.lst-kix_uhqtmz33344-2{list-style-type:none}ul.lst-kix_uhqtmz33344-1{list-style-type:none}ul.lst-kix_uhqtmz33344-0{list-style-type:none}.lst-kix_g1n6jxlj1l11-3>li:before{content:"\0025cf  "}.lst-kix_bk8gscuwxuzi-8>li{counter-increment:lst-ctn-kix_bk8gscuwxuzi-8}.lst-kix_g1n6jxlj1l11-0>li:before{content:"\0025cf  "}.lst-kix_r9jsreb2ljz7-1>li:before{content:"\0025cb  "}ol.lst-kix_bk8gscuwxuzi-8.start{counter-reset:lst-ctn-kix_bk8gscuwxuzi-8 0}.lst-kix_uhqtmz33344-5>li:before{content:"\0025a0  "}.lst-kix_o555f5t1debk-5>li:before{content:"\0025a0  "}.lst-kix_uhqtmz33344-4>li:before{content:"\0025cb  "}.lst-kix_gy5ykyc8j2j5-4>li:before{content:"\0025cb  "}.lst-kix_uhqtmz33344-1>li:before{content:"\0025cb  "}.lst-kix_gy5ykyc8j2j5-5>li:before{content:"\0025a0  "}.lst-kix_o555f5t1debk-1>li:before{content:"\0025cb  "}.lst-kix_uhqtmz33344-0>li:before{content:"\0025cf  "}.lst-kix_3gtj2vyiuame-5>li:before{content:"\0025a0  "}.lst-kix_3gtj2vyiuame-4>li:before{content:"\0025cb  "}.lst-kix_o555f5t1debk-0>li:before{content:"\0025cf  "}.lst-kix_o555f5t1debk-8>li:before{content:"\0025a0  "}.lst-kix_gy5ykyc8j2j5-8>li:before{content:"\0025a0  "}.lst-kix_3gtj2vyiuame-1>li:before{content:"\0025cb  "}.lst-kix_3gtj2vyiuame-0>li:before{content:"\0025cf  "}.lst-kix_o555f5t1debk-4>li:before{content:"\0025cb  "}ul.lst-kix_byknegote15s-8{list-style-type:none}ul.lst-kix_byknegote15s-7{list-style-type:none}ul.lst-kix_byknegote15s-6{list-style-type:none}.lst-kix_rhs1mat6mkey-3>li:before{content:"\0025cf  "}.lst-kix_rhs1mat6mkey-7>li:before{content:"\0025cb  "}.lst-kix_y6eff3qfjhog-7>li:before{content:"\0025cb  "}.lst-kix_oyzbjs17clv6-2>li:before{content:"\0025a0  "}.lst-kix_rnjvm95db21x-1>li:before{content:"\0025cb  "}ul.lst-kix_rhs1mat6mkey-7{list-style-type:none}ul.lst-kix_rhs1mat6mkey-8{list-style-type:none}ul.lst-kix_rhs1mat6mkey-5{list-style-type:none}ul.lst-kix_rhs1mat6mkey-6{list-style-type:none}ul.lst-kix_y6eff3qfjhog-1{list-style-type:none}ul.lst-kix_o555f5t1debk-6{list-style-type:none}ul.lst-kix_y6eff3qfjhog-2{list-style-type:none}ul.lst-kix_o555f5t1debk-5{list-style-type:none}ul.lst-kix_o555f5t1debk-8{list-style-type:none}ul.lst-kix_y6eff3qfjhog-0{list-style-type:none}ul.lst-kix_o555f5t1debk-7{list-style-type:none}ul.lst-kix_byknegote15s-5{list-style-type:none}ul.lst-kix_y6eff3qfjhog-5{list-style-type:none}ul.lst-kix_byknegote15s-4{list-style-type:none}ul.lst-kix_y6eff3qfjhog-6{list-style-type:none}ul.lst-kix_byknegote15s-3{list-style-type:none}ul.lst-kix_y6eff3qfjhog-3{list-style-type:none}ul.lst-kix_byknegote15s-2{list-style-type:none}ul.lst-kix_y6eff3qfjhog-4{list-style-type:none}ul.lst-kix_byknegote15s-1{list-style-type:none}ul.lst-kix_byknegote15s-0{list-style-type:none}.lst-kix_v5j3xgutpoaa-1>li:before{content:"\0025cb  "}ul.lst-kix_y6eff3qfjhog-7{list-style-type:none}.lst-kix_rnjvm95db21x-5>li:before{content:"\0025a0  "}ul.lst-kix_y6eff3qfjhog-8{list-style-type:none}.lst-kix_nw6zz2tsgbnd-3>li:before{content:"\0025cf  "}ul.lst-kix_rhs1mat6mkey-0{list-style-type:none}ul.lst-kix_rhs1mat6mkey-3{list-style-type:none}ul.lst-kix_rhs1mat6mkey-4{list-style-type:none}ul.lst-kix_rhs1mat6mkey-1{list-style-type:none}ul.lst-kix_rhs1mat6mkey-2{list-style-type:none}.lst-kix_nw6zz2tsgbnd-7>li:before{content:"\0025cb  "}.lst-kix_y6eff3qfjhog-3>li:before{content:"\0025cf  "}.lst-kix_oyzbjs17clv6-6>li:before{content:"\0025cf  "}.lst-kix_3gtj2vyiuame-8>li:before{content:"\0025a0  "}.lst-kix_gy5ykyc8j2j5-1>li:before{content:"\0025cb  "}.lst-kix_flyho7cusegr-5>li:before{content:"\0025a0  "}.lst-kix_flyho7cusegr-1>li:before{content:"\0025cb  "}.lst-kix_uhqtmz33344-8>li:before{content:"\0025a0  "}ul.lst-kix_pzuucw12s4dt-0{list-style-type:none}.lst-kix_byknegote15s-7>li:before{content:"\0025cb  "}.lst-kix_bk8gscuwxuzi-0>li:before{content:"" counter(lst-ctn-kix_bk8gscuwxuzi-0,decimal) ". "}ul.lst-kix_pzuucw12s4dt-1{list-style-type:none}ul.lst-kix_pzuucw12s4dt-2{list-style-type:none}ul.lst-kix_pzuucw12s4dt-3{list-style-type:none}ul.lst-kix_pzuucw12s4dt-4{list-style-type:none}ul.lst-kix_pzuucw12s4dt-5{list-style-type:none}ul.lst-kix_pzuucw12s4dt-6{list-style-type:none}ul.lst-kix_pzuucw12s4dt-7{list-style-type:none}ul.lst-kix_pzuucw12s4dt-8{list-style-type:none}.lst-kix_bk8gscuwxuzi-8>li:before{content:"" counter(lst-ctn-kix_bk8gscuwxuzi-8,lower-roman) ". "}.lst-kix_bk8gscuwxuzi-3>li{counter-increment:lst-ctn-kix_bk8gscuwxuzi-3}.lst-kix_r9jsreb2ljz7-5>li:before{content:"\0025a0  "}.lst-kix_bk8gscuwxuzi-4>li:before{content:"" counter(lst-ctn-kix_bk8gscuwxuzi-4,lower-latin) ". "}ul.lst-kix_o555f5t1debk-2{list-style-type:none}ul.lst-kix_o555f5t1debk-1{list-style-type:none}ul.lst-kix_o555f5t1debk-4{list-style-type:none}ul.lst-kix_o555f5t1debk-3{list-style-type:none}.lst-kix_v5j3xgutpoaa-5>li:before{content:"\0025a0  "}ul.lst-kix_o555f5t1debk-0{list-style-type:none}.lst-kix_lbu5k2sy6tm6-2>li:before{content:"\0025a0  "}.lst-kix_g1n6jxlj1l11-7>li:before{content:"\0025cb  "}ul.lst-kix_r9jsreb2ljz7-6{list-style-type:none}ul.lst-kix_r9jsreb2ljz7-5{list-style-type:none}ul.lst-kix_r9jsreb2ljz7-4{list-style-type:none}ul.lst-kix_r9jsreb2ljz7-3{list-style-type:none}.lst-kix_bk8gscuwxuzi-7>li{counter-increment:lst-ctn-kix_bk8gscuwxuzi-7}ul.lst-kix_r9jsreb2ljz7-8{list-style-type:none}ul.lst-kix_r9jsreb2ljz7-7{list-style-type:none}.lst-kix_pzuucw12s4dt-0>li:before{content:"\0025cf  "}ul.lst-kix_r9jsreb2ljz7-2{list-style-type:none}.lst-kix_pzuucw12s4dt-1>li:before{content:"\0025cb  "}ul.lst-kix_r9jsreb2ljz7-1{list-style-type:none}ul.lst-kix_r9jsreb2ljz7-0{list-style-type:none}ul.lst-kix_gy5ykyc8j2j5-6{list-style-type:none}ul.lst-kix_gy5ykyc8j2j5-5{list-style-type:none}ul.lst-kix_gy5ykyc8j2j5-8{list-style-type:none}ul.lst-kix_gy5ykyc8j2j5-7{list-style-type:none}ul.lst-kix_gy5ykyc8j2j5-0{list-style-type:none}ol.lst-kix_bk8gscuwxuzi-5.start{counter-reset:lst-ctn-kix_bk8gscuwxuzi-5 0}ul.lst-kix_gy5ykyc8j2j5-2{list-style-type:none}ul.lst-kix_gy5ykyc8j2j5-1{list-style-type:none}.lst-kix_byknegote15s-4>li:before{content:"\0025cb  "}ul.lst-kix_gy5ykyc8j2j5-4{list-style-type:none}ul.lst-kix_gy5ykyc8j2j5-3{list-style-type:none}.lst-kix_byknegote15s-3>li:before{content:"\0025cf  "}.lst-kix_byknegote15s-1>li:before{content:"\0025cb  "}.lst-kix_byknegote15s-2>li:before{content:"\0025a0  "}.lst-kix_b2ycf3yso1g8-0>li:before{content:"\0025cf  "}.lst-kix_byknegote15s-0>li:before{content:"\0025cf  "}.lst-kix_b2ycf3yso1g8-3>li:before{content:"\0025cf  "}.lst-kix_7y3x367mfnqx-1>li:before{content:"\0025cb  "}.lst-kix_b2ycf3yso1g8-2>li:before{content:"\0025a0  "}.lst-kix_7y3x367mfnqx-2>li:before{content:"\0025a0  "}.lst-kix_b2ycf3yso1g8-1>li:before{content:"\0025cb  "}.lst-kix_7y3x367mfnqx-3>li:before{content:"\0025cf  "}.lst-kix_b2ycf3yso1g8-7>li:before{content:"\0025cb  "}.lst-kix_7y3x367mfnqx-5>li:before{content:"\0025a0  "}.lst-kix_b2ycf3yso1g8-6>li:before{content:"\0025cf  "}.lst-kix_b2ycf3yso1g8-8>li:before{content:"\0025a0  "}.lst-kix_7y3x367mfnqx-4>li:before{content:"\0025cb  "}.lst-kix_7y3x367mfnqx-6>li:before{content:"\0025cf  "}.lst-kix_b2ycf3yso1g8-4>li:before{content:"\0025cb  "}.lst-kix_7y3x367mfnqx-8>li:before{content:"\0025a0  "}.lst-kix_b2ycf3yso1g8-5>li:before{content:"\0025a0  "}.lst-kix_7y3x367mfnqx-7>li:before{content:"\0025cb  "}.lst-kix_pzuucw12s4dt-3>li:before{content:"\0025cf  "}.lst-kix_pzuucw12s4dt-2>li:before{content:"\0025a0  "}.lst-kix_pzuucw12s4dt-4>li:before{content:"\0025cb  "}.lst-kix_pzuucw12s4dt-6>li:before{content:"\0025cf  "}.lst-kix_pzuucw12s4dt-5>li:before{content:"\0025a0  "}.lst-kix_pzuucw12s4dt-7>li:before{content:"\0025cb  "}.lst-kix_7y3x367mfnqx-0>li:before{content:"\0025cf  "}.lst-kix_pzuucw12s4dt-8>li:before{content:"\0025a0  "}.lst-kix_y6eff3qfjhog-8>li:before{content:"\0025a0  "}.lst-kix_v5j3xgutpoaa-2>li:before{content:"\0025a0  "}.lst-kix_v5j3xgutpoaa-0>li:before{content:"\0025cf  "}ul.lst-kix_3gtj2vyiuame-7{list-style-type:none}ul.lst-kix_3gtj2vyiuame-8{list-style-type:none}ul.lst-kix_3gtj2vyiuame-0{list-style-type:none}ul.lst-kix_3gtj2vyiuame-1{list-style-type:none}ul.lst-kix_3gtj2vyiuame-2{list-style-type:none}ul.lst-kix_3gtj2vyiuame-3{list-style-type:none}.lst-kix_y6eff3qfjhog-0>li:before{content:"\0025cf  "}ul.lst-kix_3gtj2vyiuame-4{list-style-type:none}ul.lst-kix_3gtj2vyiuame-5{list-style-type:none}ul.lst-kix_3gtj2vyiuame-6{list-style-type:none}.lst-kix_y6eff3qfjhog-6>li:before{content:"\0025cf  "}.lst-kix_y6eff3qfjhog-2>li:before{content:"\0025a0  "}.lst-kix_y6eff3qfjhog-4>li:before{content:"\0025cb  "}.lst-kix_gy5ykyc8j2j5-2>li:before{content:"\0025a0  "}.lst-kix_flyho7cusegr-2>li:before{content:"\0025a0  "}ol.lst-kix_bk8gscuwxuzi-7.start{counter-reset:lst-ctn-kix_bk8gscuwxuzi-7 0}.lst-kix_uhqtmz33344-7>li:before{content:"\0025cb  "}.lst-kix_flyho7cusegr-4>li:before{content:"\0025cb  "}.lst-kix_gy5ykyc8j2j5-0>li:before{content:"\0025cf  "}.lst-kix_flyho7cusegr-6>li:before{content:"\0025cf  "}ul.lst-kix_flyho7cusegr-8{list-style-type:none}ul.lst-kix_flyho7cusegr-7{list-style-type:none}ul.lst-kix_flyho7cusegr-6{list-style-type:none}.lst-kix_flyho7cusegr-0>li:before{content:"\0025cf  "}ul.lst-kix_flyho7cusegr-5{list-style-type:none}.lst-kix_byknegote15s-6>li:before{content:"\0025cf  "}ul.lst-kix_flyho7cusegr-0{list-style-type:none}ul.lst-kix_flyho7cusegr-4{list-style-type:none}.lst-kix_flyho7cusegr-8>li:before{content:"\0025a0  "}ul.lst-kix_flyho7cusegr-3{list-style-type:none}.lst-kix_byknegote15s-8>li:before{content:"\0025a0  "}ul.lst-kix_flyho7cusegr-2{list-style-type:none}ul.lst-kix_flyho7cusegr-1{list-style-type:none}.lst-kix_v5j3xgutpoaa-6>li:before{content:"\0025cf  "}.lst-kix_r9jsreb2ljz7-2>li:before{content:"\0025a0  "}.lst-kix_bk8gscuwxuzi-0>li{counter-increment:lst-ctn-kix_bk8gscuwxuzi-0}.lst-kix_r9jsreb2ljz7-4>li:before{content:"\0025cb  "}.lst-kix_r9jsreb2ljz7-6>li:before{content:"\0025cf  "}.lst-kix_v5j3xgutpoaa-4>li:before{content:"\0025cb  "}ul.lst-kix_u77qi7lsfl4d-3{list-style-type:none}ul.lst-kix_u77qi7lsfl4d-2{list-style-type:none}.lst-kix_r9jsreb2ljz7-8>li:before{content:"\0025a0  "}ul.lst-kix_u77qi7lsfl4d-5{list-style-type:none}ul.lst-kix_u77qi7lsfl4d-4{list-style-type:none}ul.lst-kix_u77qi7lsfl4d-7{list-style-type:none}ul.lst-kix_u77qi7lsfl4d-6{list-style-type:none}ul.lst-kix_u77qi7lsfl4d-8{list-style-type:none}.lst-kix_v5j3xgutpoaa-8>li:before{content:"\0025a0  "}ul.lst-kix_u77qi7lsfl4d-1{list-style-type:none}ul.lst-kix_u77qi7lsfl4d-0{list-style-type:none}ol.lst-kix_bk8gscuwxuzi-2.start{counter-reset:lst-ctn-kix_bk8gscuwxuzi-2 0}.lst-kix_g1n6jxlj1l11-2>li:before{content:"\0025a0  "}ul.lst-kix_szsas7qp76jx-8{list-style-type:none}ul.lst-kix_szsas7qp76jx-5{list-style-type:none}ul.lst-kix_szsas7qp76jx-4{list-style-type:none}ul.lst-kix_szsas7qp76jx-7{list-style-type:none}ul.lst-kix_szsas7qp76jx-6{list-style-type:none}ul.lst-kix_szsas7qp76jx-1{list-style-type:none}ul.lst-kix_szsas7qp76jx-0{list-style-type:none}ul.lst-kix_szsas7qp76jx-3{list-style-type:none}ul.lst-kix_szsas7qp76jx-2{list-style-type:none}.lst-kix_g1n6jxlj1l11-1>li:before{content:"\0025cb  "}.lst-kix_r9jsreb2ljz7-0>li:before{content:"\0025cf  "}ul.lst-kix_hso0umkddkab-1{list-style-type:none}ul.lst-kix_hso0umkddkab-0{list-style-type:none}ul.lst-kix_hso0umkddkab-3{list-style-type:none}ul.lst-kix_hso0umkddkab-2{list-style-type:none}ul.lst-kix_hso0umkddkab-8{list-style-type:none}ul.lst-kix_hso0umkddkab-5{list-style-type:none}ul.lst-kix_hso0umkddkab-4{list-style-type:none}ul.lst-kix_hso0umkddkab-7{list-style-type:none}ul.lst-kix_hso0umkddkab-6{list-style-type:none}.lst-kix_3gtj2vyiuame-3>li:before{content:"\0025cf  "}.lst-kix_uhqtmz33344-3>li:before{content:"\0025cf  "}.lst-kix_o555f5t1debk-3>li:before{content:"\0025cf  "}.lst-kix_o555f5t1debk-7>li:before{content:"\0025cb  "}.lst-kix_bk8gscuwxuzi-4>li{counter-increment:lst-ctn-kix_bk8gscuwxuzi-4}.lst-kix_3gtj2vyiuame-2>li:before{content:"\0025a0  "}.lst-kix_3gtj2vyiuame-6>li:before{content:"\0025cf  "}.lst-kix_o555f5t1debk-2>li:before{content:"\0025a0  "}.lst-kix_o555f5t1debk-6>li:before{content:"\0025cf  "}.lst-kix_uhqtmz33344-2>li:before{content:"\0025a0  "}.lst-kix_gy5ykyc8j2j5-7>li:before{content:"\0025cb  "}.lst-kix_gy5ykyc8j2j5-6>li:before{content:"\0025cf  "}ul.lst-kix_lbu5k2sy6tm6-6{list-style-type:none}ol.lst-kix_bk8gscuwxuzi-3.start{counter-reset:lst-ctn-kix_bk8gscuwxuzi-3 0}ul.lst-kix_lbu5k2sy6tm6-5{list-style-type:none}ul.lst-kix_lbu5k2sy6tm6-4{list-style-type:none}ul.lst-kix_lbu5k2sy6tm6-3{list-style-type:none}ul.lst-kix_lbu5k2sy6tm6-2{list-style-type:none}ul.lst-kix_lbu5k2sy6tm6-1{list-style-type:none}ul.lst-kix_lbu5k2sy6tm6-0{list-style-type:none}ul.lst-kix_lbu5k2sy6tm6-8{list-style-type:none}ul.lst-kix_lbu5k2sy6tm6-7{list-style-type:none}ul.lst-kix_g1n6jxlj1l11-2{list-style-type:none}ul.lst-kix_g1n6jxlj1l11-3{list-style-type:none}.lst-kix_oyzbjs17clv6-8>li:before{content:"\0025a0  "}ul.lst-kix_g1n6jxlj1l11-0{list-style-type:none}ul.lst-kix_g1n6jxlj1l11-1{list-style-type:none}ul.lst-kix_g1n6jxlj1l11-6{list-style-type:none}ul.lst-kix_g1n6jxlj1l11-7{list-style-type:none}ul.lst-kix_g1n6jxlj1l11-4{list-style-type:none}.lst-kix_rnjvm95db21x-3>li:before{content:"\0025cf  "}.lst-kix_rnjvm95db21x-7>li:before{content:"\0025cb  "}ul.lst-kix_g1n6jxlj1l11-5{list-style-type:none}.lst-kix_oyzbjs17clv6-4>li:before{content:"\0025cb  "}ul.lst-kix_rnjvm95db21x-7{list-style-type:none}ul.lst-kix_rnjvm95db21x-8{list-style-type:none}.lst-kix_rhs1mat6mkey-1>li:before{content:"\0025cb  "}.lst-kix_oyzbjs17clv6-0>li:before{content:"\0025cf  "}.lst-kix_rhs1mat6mkey-5>li:before{content:"\0025a0  "}.lst-kix_nw6zz2tsgbnd-1>li:before{content:"\0025cb  "}.lst-kix_nw6zz2tsgbnd-5>li:before{content:"\0025a0  "}ol.lst-kix_bk8gscuwxuzi-1.start{counter-reset:lst-ctn-kix_bk8gscuwxuzi-1 0}.lst-kix_y6eff3qfjhog-1>li:before{content:"\0025cb  "}ul.lst-kix_rnjvm95db21x-3{list-style-type:none}ul.lst-kix_rnjvm95db21x-4{list-style-type:none}.lst-kix_y6eff3qfjhog-5>li:before{content:"\0025a0  "}.lst-kix_bk8gscuwxuzi-2>li{counter-increment:lst-ctn-kix_bk8gscuwxuzi-2}ul.lst-kix_rnjvm95db21x-5{list-style-type:none}ul.lst-kix_rnjvm95db21x-6{list-style-type:none}ul.lst-kix_rnjvm95db21x-0{list-style-type:none}ul.lst-kix_rnjvm95db21x-1{list-style-type:none}ul.lst-kix_rnjvm95db21x-2{list-style-type:none}ul.lst-kix_g1n6jxlj1l11-8{list-style-type:none}.lst-kix_gy5ykyc8j2j5-3>li:before{content:"\0025cf  "}ul.lst-kix_b2ycf3yso1g8-0{list-style-type:none}.lst-kix_uhqtmz33344-6>li:before{content:"\0025cf  "}ul.lst-kix_b2ycf3yso1g8-4{list-style-type:none}ul.lst-kix_b2ycf3yso1g8-3{list-style-type:none}ul.lst-kix_b2ycf3yso1g8-2{list-style-type:none}ul.lst-kix_b2ycf3yso1g8-1{list-style-type:none}ul.lst-kix_b2ycf3yso1g8-8{list-style-type:none}ul.lst-kix_b2ycf3yso1g8-7{list-style-type:none}ul.lst-kix_b2ycf3yso1g8-6{list-style-type:none}ul.lst-kix_b2ycf3yso1g8-5{list-style-type:none}.lst-kix_byknegote15s-5>li:before{content:"\0025a0  "}.lst-kix_flyho7cusegr-7>li:before{content:"\0025cb  "}.lst-kix_bk8gscuwxuzi-2>li:before{content:"" counter(lst-ctn-kix_bk8gscuwxuzi-2,lower-roman) ". "}ul.lst-kix_7y3x367mfnqx-8{list-style-type:none}.lst-kix_v5j3xgutpoaa-7>li:before{content:"\0025cb  "}ul.lst-kix_7y3x367mfnqx-6{list-style-type:none}ul.lst-kix_7y3x367mfnqx-7{list-style-type:none}ul.lst-kix_7y3x367mfnqx-4{list-style-type:none}.lst-kix_r9jsreb2ljz7-3>li:before{content:"\0025cf  "}.lst-kix_bk8gscuwxuzi-6>li:before{content:"" counter(lst-ctn-kix_bk8gscuwxuzi-6,decimal) ". "}ul.lst-kix_7y3x367mfnqx-5{list-style-type:none}ul.lst-kix_7y3x367mfnqx-2{list-style-type:none}ul.lst-kix_7y3x367mfnqx-3{list-style-type:none}.lst-kix_v5j3xgutpoaa-3>li:before{content:"\0025cf  "}.lst-kix_lbu5k2sy6tm6-4>li:before{content:"\0025cb  "}.lst-kix_g1n6jxlj1l11-5>li:before{content:"\0025a0  "}.lst-kix_r9jsreb2ljz7-7>li:before{content:"\0025cb  "}ul.lst-kix_7y3x367mfnqx-0{list-style-type:none}ul.lst-kix_7y3x367mfnqx-1{list-style-type:none}.lst-kix_lbu5k2sy6tm6-0>li:before{content:"\0025cf  "}.lst-kix_flyho7cusegr-3>li:before{content:"\0025cf  "}ol.lst-kix_bk8gscuwxuzi-0.start{counter-reset:lst-ctn-kix_bk8gscuwxuzi-0 0}ol{margin:0;padding:0}table td,table th{padding:0}.c7{margin-left:72pt;padding-top:0pt;padding-left:0pt;padding-bottom:0pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c8{margin-left:36pt;padding-top:0pt;text-indent:36pt;padding-bottom:0pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c2{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Consolas";font-style:normal}.c13{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Arial";font-style:italic}.c24{color:#666666;font-weight:400;text-decoration:underline;vertical-align:baseline;font-size:11pt;font-family:"Trebuchet MS";font-style:normal}.c5{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Arial";font-style:normal}.c29{color:#000000;text-decoration:none;vertical-align:baseline;font-size:14pt;font-family:"Arial";font-style:normal}.c25{color:#000000;text-decoration:none;vertical-align:baseline;font-size:18pt;font-family:"Arial";font-style:normal}.c10{padding-top:0pt;padding-bottom:0pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c23{color:#000000;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Consolas";font-style:normal}.c22{padding-top:14pt;padding-bottom:4pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c20{color:#000000;text-decoration:none;vertical-align:baseline;font-size:13pt;font-family:"Trebuchet MS";font-style:normal}.c37{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:16pt;font-family:"Trebuchet MS"}.c27{padding-top:0pt;padding-bottom:0pt;line-height:1.15;orphans:2;widows:2;text-align:center}.c6{margin-left:36pt;padding-top:0pt;padding-left:0pt;padding-bottom:0pt;line-height:1.15;text-align:left}.c33{color:#000000;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Arial"}.c31{padding-top:18pt;padding-bottom:4pt;line-height:1.15;page-break-after:avoid;text-align:left}.c18{padding-top:8pt;padding-bottom:0pt;line-height:1.15;page-break-after:avoid;text-align:left}.c40{padding-top:18pt;padding-bottom:4pt;line-height:1.0;page-break-after:avoid;text-align:center}.c36{color:#000000;text-decoration:none;vertical-align:baseline;font-size:14pt;font-family:"Arial"}.c1{padding-top:14pt;padding-bottom:4pt;line-height:1.15;page-break-after:avoid;text-align:left}.c32{font-size:14pt;font-family:"Arial";color:#000000;font-weight:400}.c19{padding-top:0pt;padding-bottom:0pt;line-height:1.15;text-align:left}.c38{background-color:#ffffff;max-width:487.3pt;padding:54pt 54pt 54pt 54pt}.c44{font-size:18pt;font-family:"Arial"}.c0{color:inherit;text-decoration:inherit}.c16{font-weight:400;font-family:"Consolas"}.c4{color:#1155cc;text-decoration:underline}.c9{padding:0;margin:0}.c11{margin-left:36pt;padding-left:0pt}.c17{background-color:#ffff00}.c15{font-style:italic}.c26{text-indent:36pt}.c39{margin-left:72pt}.c28{text-decoration:underline}.c3{color:#cc0000}.c34{font-style:normal}.c12{font-weight:700}.c41{padding-left:0pt}.c43{font-weight:400}.c30{background-color:#ff9900}.c21{margin-left:36pt}.c14{height:11pt}.c35{height:13pt}.c42{font-size:8pt}.title{padding-top:0pt;color:#000000;font-size:21pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}.subtitle{padding-top:0pt;color:#666666;font-size:13pt;padding-bottom:10pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;font-style:italic;orphans:2;widows:2;text-align:left}li{color:#000000;font-size:11pt;font-family:"Arial"}p{margin:0;color:#000000;font-size:11pt;font-family:"Arial"}h1{padding-top:10pt;color:#000000;font-size:16pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h2{padding-top:10pt;color:#000000;font-weight:700;font-size:13pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h3{padding-top:8pt;color:#666666;font-weight:700;font-size:12pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h4{padding-top:8pt;color:#666666;text-decoration:underline;font-size:11pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h5{padding-top:8pt;color:#666666;font-size:11pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h6{padding-top:8pt;color:#666666;font-size:11pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;font-style:italic;orphans:2;widows:2;text-align:left}</style><h1 class="c40" id="h.kd51u13e7iy4"><span class="c37 c34">Project Description for Web Software Development </span></h1><h1 class="c40" id="h.clwl1j5f2q6c"><span class="c34 c37">2017-2018 (CS-C3170) Course Project</span></h1><p class="c10 c14"><span class="c5"></span></p><p class="c27"><span class="c5">Last Modified: 2017-12-07</span></p><h2 class="c31 c35" id="h.o0ipsojo3bgi"><span class="c25 c12"></span></h2><h2 class="c31" id="h.y87hu7mbodlv"><span class="c43 c44">A quick step-by-step introduction to the project</span></h2><p class="c19 c14"><span class="c5"></span></p><p class="c19"><span>The projects are carried out in groups of </span><span class="c12">three</span><span>. Bigger groups can be split and extra members added to get to the desired team size. </span><span class="c4"><a class="c0" href="https://www.google.com/url?q=https://piazza.com/class/j9fdu026z622u0?cid%3D5&amp;sa=D&amp;ust=1513078111082000&amp;usg=AFQjCNEZmlxyWtLrXHVDFxSAjmy1Kef5QA">Piazza</a></span><span>&nbsp;can be used to search groups and there is a </span><span class="c4"><a class="c0" href="https://www.google.com/url?q=https://piazza.com/class/j9fdu026z622u0?cid%3D5&amp;sa=D&amp;ust=1513078111083000&amp;usg=AFQjCNH9No2kaPN8WzmkmgRSTII1EeDNdw">special post</a></span><span class="c5">&nbsp;especially for this. You can post advertisements or read and reply to advertisements of others. When creating an advertisement, it might be good to tell:</span></p><p class="c19 c14"><span class="c5"></span></p><ul class="c9 lst-kix_gy5ykyc8j2j5-0 start"><li class="c6"><span class="c5">about your ambitions (e.g. would you like to get full points or just pass)</span></li><li class="c6"><span class="c5">possible time/place constraints (i.e. when and how often can you meet)</span></li><li class="c6"><span class="c5">about yourself</span></li><li class="c6"><span class="c5">and somehow describe the group mates you are searching</span></li></ul><p class="c19 c14"><span class="c5"></span></p><p class="c19"><span class="c5">Please respond to people who apply to your group and remember to close the advertisement when the group is full.</span></p><p class="c19 c14"><span class="c5"></span></p><p class="c19"><span class="c5">After you have found your group, you should: </span></p><p class="c19 c14"><span class="c5"></span></p><ol class="c9 lst-kix_bk8gscuwxuzi-0 start" start="1"><li class="c6"><span class="c12">Setup the repository: </span><span>Someone in the group creates a project in </span><span class="c4"><a class="c0" href="https://www.google.com/url?q=https://version.aalto.fi&amp;sa=D&amp;ust=1513078111084000&amp;usg=AFQjCNFTGNrJO0uz2FWgR5-rZZ8bZMLh6Q">version.aalto.fi</a></span><span>&nbsp;and adds all team members to it. &nbsp;In addition, &nbsp;</span><span class="c12">aplus</span><span>&nbsp;needs to be added to the project as reporter and project needs to be set to private (same steps as in Exercise round 1). </span><span class="c15">The group is considered </span><span class="c15 c12">registered</span><span class="c13">&nbsp;when all members of the group have been added to it and aplus is added as a reporter.</span></li><li class="c6"><span class="c12">Write and commit the project plan:</span><span>&nbsp;</span><span class="c4"><a class="c0" href="https://www.google.com/url?q=https://version.aalto.fi/gitlab/lehtint6/sample-project&amp;sa=D&amp;ust=1513078111084000&amp;usg=AFQjCNGHz6edyZSEuOvMxBfKyNI-ejUvgA">Write your project plan</a></span><span>, then commit and push that as the readme file of your project. </span><span>'That is a file called </span><span class="c16">README.md</span><span>&nbsp;in the root of your project. Plain text goes well, but you can also use </span><span class="c4"><a class="c0" href="https://www.google.com/url?q=http://daringfireball.net/projects/markdown/&amp;sa=D&amp;ust=1513078111085000&amp;usg=AFQjCNHyv0hOIEapFeJdKC2QJ3NEIDJhSg">markdown</a></span><span>. If you want to use images in your project description (e.g. database schema, layout sketches) you can add those to the project as well and link them in </span><span class="c15">markdown</span><span>.</span></li><li class="c6"><span class="c12">Create an issue:</span><span>&nbsp;</span><span>After you have your project plan finished, </span><span>create an issue</span><span>&nbsp;in GitLab &nbsp;where you request your plan to be reviewed and assign the issue to </span><span class="c12">aplus</span><span class="c5">. Note! We simply don’t know about the state of your project until you make the issue - don’t forget it.</span></li></ol><ol class="c9 lst-kix_bk8gscuwxuzi-1 start" start="1"><li class="c19 c39 c41"><span class="c12">Note</span><span class="c5">&nbsp;that if you get feedback on some specific aspect of your project plan and do not react accordingly in the final project, points will be deducted.</span></li></ol><ol class="c9 lst-kix_bk8gscuwxuzi-0" start="4"><li class="c6"><span class="c12">Implement:</span><span>&nbsp;Start implementing your project </span><span>after your project plan is accepted (i.e. your issue has been commented and closed by aplus).</span><span>&nbsp;Your application will eventually be deployed to Heroku, so you may also want to read the </span><span class="c4"><a class="c0" href="https://www.google.com/url?q=https://devcenter.heroku.com/articles/django&amp;sa=D&amp;ust=1513078111086000&amp;usg=AFQjCNGY55J4iioug6vL-1zJXJUoEIWVoQ">Heroku Django tutorial</a></span><span>&nbsp;</span><span class="c4"><a class="c0" href="https://www.google.com/url?q=https://devcenter.heroku.com/articles/getting-started-with-python%23introduction&amp;sa=D&amp;ust=1513078111086000&amp;usg=AFQjCNHiufQD8JFCn0Tv3akv6Y4wIdK9IQ">(here’s another one)</a></span><span>&nbsp;before starting your implementation work. </span><span class="c15">There will be a demo on Heroku on one of the lectures in spring. </span></li><li class="c6"><span class="c12">Deploy early: </span><span>Deploy your project early to avoid any hassles in the end. </span><span class="c42">Someone from your group needs to register to Heroku.</span><span>&nbsp;</span><span class="c5">We recommend that once you have an initial application working (it might have a Hello World type of an app and a css-file) you do the initial Heroku deployment as soon as possible. Try it also with debug turned off so that you know your css-file gets shown.</span></li></ol><ol class="c9 lst-kix_bk8gscuwxuzi-1 start" start="1"><li class="c19 c39 c41"><span>It should be noted that </span><span>because </span><span>Heroku provides only limited monthly resources for free, we recommend doing most development and testing first locally (not on Heroku's remote servers). The quota is high (1000 dyno-hours/month) so </span><span class="c12">running out of hours is </span><span class="c12 c28">very</span><span class="c12">&nbsp;unlikely</span><span class="c5">. It is however possible to use multiple dynos, which uses the quota in a multiplied rate. Just remember to keep track of your quota that you have hours left when you are supposed to deploy your project and when the course staff uses your project to grade what has been deployed.</span></li></ol><ol class="c9 lst-kix_bk8gscuwxuzi-0" start="6"><li class="c6"><span>...work...discuss...collaborate...learn..</span></li><li class="c6"><span class="c12">Deploy</span><span>&nbsp;your finished project version to </span><span class="c4"><a class="c0" href="https://www.google.com/url?q=http://www.heroku.com&amp;sa=D&amp;ust=1513078111087000&amp;usg=AFQjCNGCCmb_qL2d2bsQ3yXftGSJP-LrLA">Heroku</a></span><span>. </span></li><li class="c6"><span class="c12">Create a new issue</span><span class="c5">&nbsp;to your project in GitLab where you tell that the work is finished and assign that to to the person that gave you feedback on the project plan.</span></li></ol><h3 class="c1" id="h.jvqtquyv0bw"><span class="c32">Deadlines</span></h3><ul class="c9 lst-kix_pzuucw12s4dt-0 start"><li class="c6"><span>Group registration - </span><span class="c5">14.12.2017 midnight</span></li><li class="c6"><span>Project Plan - </span><span class="c5">21.12.2017 midnight</span></li><li class="c6"><span>Final submission - 19</span><span class="c5">.2.2018 midnight (end of period III)</span></li><li class="c6"><span class="c5">Project demonstrations - few weeks after submission, announced when space has been reserved</span></li></ul><p class="c19 c14"><span class="c5"></span></p><p class="c19"><span class="c5">Group registrations and project plans are reviewed continuously as they come in and we encourage you start as soon as you can.</span></p><h2 class="c31" id="h.cx6knoblsp22"><span class="c25 c12">Project Topic and Requirements</span></h2><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span>The topic for the course project for CS-C3170 2017-2018 is an </span><span class="c12">online game store for JavaScript games</span><span>. The service has two types of users: players and developers. Developers can add their games to the service and set a price for it. </span><span>Players can buy games on the platform and then play purchased games online.</span></p><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span>At the end, you deploy the project to </span><span class="c4"><a class="c0" href="https://www.google.com/url?q=http://www.heroku.com/&amp;sa=D&amp;ust=1513078111089000&amp;usg=AFQjCNElquf_ZvWJiXa5cmxkDvSId6nPTg">Heroku</a></span><span class="c5">. Game developers are not supposed to upload the JavaScript files of a game to the server. Instead, games are added by providing an URL to an HTML file that contains all assets and JavaScript links to JavaScript files. </span></p><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span>The project has to be coded using the Django framework and has to include both client and server side code. On the client side, we strongly suggest using jQuery as a JavaScript library throughout the project. Other JavaScript libraries are allowed but not supported by the staff. Use of CSS libraries such as </span><span class="c4"><a class="c0" href="https://www.google.com/url?q=http://getbootstrap.com/&amp;sa=D&amp;ust=1513078111090000&amp;usg=AFQjCNHB3xvuY1VI2nShI5ZkSeMdO7HMnA">Bootstrap</a></span><span class="c5">&nbsp;is allowed and recommended. Don’t make your project a single-page-app with only a dumb backend.</span></p><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c5">You should implement both server and client side code mostly by yourself and not compose the service from various third party Django apps. The motivation of this is that before using third party applications, it is good to understand the basics and be able to write simple services just by yourselves.</span></p><p class="c27"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 610.50px; height: 325.91px;"><img alt="wsd_project_example.png" src="./A+ Web Software Development_ 9.1 Instructions_files/i67k2mq7lK7w20doYd5UwuLbWGrnI9IgC5fO_pxdBthJJqzZLkt-sClAKYxSoUt_uHJ6Fs09vtsQHnQZuo96ER9GUzY-VbGnB0c-6ufjXZxlUYYBxKYJEisqh5tik5h_YQ" style="width: 610.50px; height: 325.91px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p><p class="c22"><span class="c12">Picture 1</span><span>.</span><span class="c13">&nbsp;Rough outline of the service (including interaction with the game). Note that this is just an example. You are free to decide on the style and layout. </span></p><p class="c10 c14"><span class="c5"></span></p><h3 class="c1" id="h.w6ajoi23bf8y"><span class="c12 c29">Game Developer Information</span></h3><p class="c10"><span class="c5">The game developers have an inventory of games that are on sale on the site. New games are added to the inventory by giving a link to an URL of the game, which is an HTML file that should be displayed in an iframe to the player. The platform must support a simple message system, the games will send message events to the parent document informing on the score of the game. The platform should have a global high score for each game, where top scores for each game is displayed. </span></p><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c5">Similarly to submitting high scores, the service should accept save/load game state messages. The save message can contain arbitrary JSON formatted data containing a state of a game and save it to the database. Similarly, if there is a saved game state for that game and that particular player, the service should send a message to the game, so the state can be loaded and the player can continue playing from their previous state.</span></p><h4 class="c18" id="h.4nz7dfxe2nsa"><span class="c24">Sample Messages/Document the protocol</span></h4><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span>Game and the game service communicate with </span><span class="c16">window.postMessage</span><span>. All the messages must contain a </span><span class="c16">messageType</span><span>&nbsp;attribute, which can be one of six</span><span>&nbsp;things</span><span class="c5">:</span></p><ul class="c9 lst-kix_3gtj2vyiuame-0 start"><li class="c10 c11"><span class="c23 c12">SCORE</span></li></ul><ul class="c9 lst-kix_3gtj2vyiuame-1 start"><li class="c7"><span class="c5">sent from the game to the service, informing of a new score submission</span></li><li class="c7"><span>the message must also contain </span><span class="c16">score</span><span class="c5">&nbsp;attribute</span></li></ul><ul class="c9 lst-kix_3gtj2vyiuame-0"><li class="c10 c11"><span class="c12 c23">SAVE</span></li></ul><ul class="c9 lst-kix_3gtj2vyiuame-1 start"><li class="c7"><span class="c5">Sent from the game to the service, the service should now store the sent game state</span></li><li class="c7"><span>the message must also contain </span><span class="c16">gameState</span><span class="c5">&nbsp;attribute, containing game specific state information</span></li><li class="c7"><span>You can assume that the </span><span class="c16">gameState</span><span>&nbsp;is serializable by JSON.stringify</span></li></ul><ul class="c9 lst-kix_3gtj2vyiuame-0"><li class="c10 c11"><span class="c23 c12">LOAD_REQUEST</span></li></ul><ul class="c9 lst-kix_3gtj2vyiuame-1 start"><li class="c7"><span class="c5">Sent from the game to the service, requesting that a game state (if there is one saved) is sent from the service to the game</span></li><li class="c7"><span>The service will either respond with </span><span class="c16">LOAD</span><span>&nbsp;or &nbsp;</span><span class="c16">ERROR</span></li></ul><ul class="c9 lst-kix_3gtj2vyiuame-0"><li class="c10 c11"><span class="c23 c12">LOAD</span></li></ul><ul class="c9 lst-kix_3gtj2vyiuame-1 start"><li class="c7"><span class="c5">Sent from the service to the game</span></li><li class="c7"><span>Must contain </span><span class="c16">gameState</span><span class="c5">&nbsp;attribute, which has the game specific state to be loaded</span></li></ul><ul class="c9 lst-kix_3gtj2vyiuame-0"><li class="c10 c11"><span class="c23 c12">ERROR</span></li></ul><ul class="c9 lst-kix_3gtj2vyiuame-1 start"><li class="c7"><span class="c5">Sent from the service to the game</span></li><li class="c7"><span>Must contain </span><span class="c16">info</span><span class="c5">&nbsp;attribute, which contains textual information to be relayed to the user on what went wrong</span></li></ul><ul class="c9 lst-kix_3gtj2vyiuame-0"><li class="c10 c11"><span class="c23 c12">SETTING</span></li></ul><ul class="c9 lst-kix_3gtj2vyiuame-1 start"><li class="c7"><span>Sent from the game to the service once the game finishes loading</span></li><li class="c7"><span>Must contain </span><span class="c16">options</span><span>&nbsp;attribute, which tells game specific configuration to the service. This is mainly used to adjust the layout in the service by providing a desired resolution in </span><span class="c15">pixels</span><span>, see examples for details.</span></li></ul><p class="c10 c14"><span class="c13"></span></p><p class="c10"><span class="c15">Example message SCORE from game to the service</span></p><p class="c10"><span class="c2">var message = { </span></p><p class="c10 c26"><span class="c2">messageType: "SCORE", </span></p><p class="c10 c26"><span class="c2">score: 500.0 // Float</span></p><p class="c10"><span class="c2">};</span></p><p class="c10 c14"><span class="c2"></span></p><p class="c10"><span class="c13">Example message SAVE from game to the service</span></p><p class="c10"><span class="c2">var message = &nbsp;{</span></p><p class="c10 c26"><span class="c2">messageType: "SAVE", </span></p><p class="c10 c26"><span class="c2">gameState: {</span></p><p class="c8"><span class="c2">playerItems: [</span></p><p class="c10 c26 c39"><span class="c2">"Sword",</span></p><p class="c10 c26 c39"><span class="c2">&nbsp;"Wizard Hat"</span></p><p class="c8"><span class="c2">],</span></p><p class="c8"><span class="c2">score: 506.0 // Float</span></p><p class="c10 c21"><span class="c2">}</span></p><p class="c10"><span class="c2">};</span></p><p class="c10 c21 c14"><span class="c5"></span></p><p class="c10"><span class="c13">Example message LOAD_REQUEST from game to the service</span></p><p class="c10"><span class="c2">var message = {</span></p><p class="c10 c26"><span class="c2">messageType: "LOAD_REQUEST"</span></p><p class="c10"><span class="c2">};</span></p><p class="c10 c14"><span class="c2"></span></p><p class="c10"><span class="c13">Example message LOAD from service to the game</span></p><p class="c10"><span class="c2">var message = {</span></p><p class="c10 c26"><span class="c2">messageType: "LOAD", </span></p><p class="c10 c26"><span class="c2">gameState: {</span></p><p class="c8"><span class="c2">playerItems: [</span></p><p class="c10 c26 c39"><span class="c2">"Sword",</span></p><p class="c10 c26 c39"><span class="c2">&nbsp;"Wizard Hat"</span></p><p class="c8"><span class="c2">],</span></p><p class="c8"><span class="c2">score: 506.0 // Float</span></p><p class="c10 c21"><span class="c2">}</span></p><p class="c10"><span class="c2">};</span></p><p class="c10 c14"><span class="c2"></span></p><p class="c10"><span class="c15">Example message ERROR from service to the game</span></p><p class="c10"><span class="c2">var message = &nbsp;{</span></p><p class="c10 c26"><span class="c2">messageType: "ERROR", </span></p><p class="c10 c26"><span class="c2">info: "Gamestate could not be loaded"</span></p><p class="c10"><span class="c2">};</span></p><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c15">Example message SETTING from game to the service</span></p><p class="c10"><span class="c2">var message = &nbsp;{</span></p><p class="c10 c26"><span class="c2">messageType: "SETTING", </span></p><p class="c10 c26"><span class="c2">options: {</span></p><p class="c10 c26"><span class="c2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"width": 400, //Integer</span></p><p class="c8"><span class="c2">"height": 300 //Integer</span></p><p class="c10 c26"><span class="c2">}</span></p><p class="c10"><span class="c16">};</span></p><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span>An example “game” is available and served as HTTP (</span><span class="c4"><a class="c0" href="https://www.google.com/url?q=http://webcourse.cs.hut.fi/example_game.html&amp;sa=D&amp;ust=1513078111096000&amp;usg=AFQjCNEYwtfkEKCBYBucyat1teZefmO8aw">http://webcourse.cs.hut.fi/example_game.html</a></span><span>) </span><span>and also in the wsd2017 repository</span><span>&nbsp;(wsd2017/examples/example_game.html). It has the features that your service should support (</span><span>sends player's score and handles incoming messages). It additionally supports saving and loading of game state</span><span>. </span></p><h3 class="c1" id="h.82dh19sl0taz"><span class="c29 c12">Payment Service</span></h3><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span>Players pay for the games they want to play by using an external Simple Payments service. This service mimics an online bank payment service. Documentation and usage examples can be found on the </span><span>Simple Payments</span><span>&nbsp;site: </span><span class="c4"><a class="c0" href="https://www.google.com/url?q=http://payments.webcourse.niksula.hut.fi/&amp;sa=D&amp;ust=1513078111097000&amp;usg=AFQjCNEugkzOLsKGJAkazz_i8LCai1n7cA">http://payments.webcourse.niksula.hut.fi/</a></span><span class="c5">&nbsp;</span></p><p class="c10 c14"><span class="c5"></span></p><h3 class="c1" id="h.kswlw2dfxxnl"><span class="c29 c12">Note About Security</span></h3><p class="c10"><span>The simple messaging system used by the </span><span class="c12">game </span><span class="c5">platform can easily be tampered with JavaScript (e.g. to achieve higher scores on games/modify the saved game state). You do not need to implement any measures to protect against this. </span></p><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span>Also plain HTTP is used with </span><span class="c12">payment service</span><span class="c5">. (we haven’t bought a certificate for it)</span></p><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c12">Besides these exceptions</span><span class="c5">&nbsp;you should aim to make your project secure. Student projects have often had problems with authorization and authentication or they could have allowed the user to e.g. tamper with data coming back from the payment service or do script injections to items shown to other users.</span></p><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span>Think about how you (or someone else) could attack your software.</span><span class="c5">.. We will :)</span></p><p class="c10 c14"><span class="c5"></span></p><h3 class="c18" id="h.jas7x28zi1xv"><span class="c32">Note About </span><span class="c15 c12 c36">Software</span></h3><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span>The course is a web </span><span class="c12">software</span><span>&nbsp;development course. Every group member has to contribute in the software - meaning that it is not enough to concentrate on HTML/CSS only. Ideally everyone should be given a possibility to try and learn all the topics. Remember also that the course project is a learning opportunity, so remember to leave your comfort zone and try new things. If there is a guru in you group, do pair programming with them and gain a skill that will benefit you in the future.</span></p><h3 class="c1" id="h.3nh4mu416n10"><span class="c29 c12">Generic requirements</span></h3><ul class="c9 lst-kix_v5j3xgutpoaa-0 start"><li class="c10 c11"><span class="c5">Valid CSS and HTML (use a validator... we will)</span></li></ul><ul class="c9 lst-kix_v5j3xgutpoaa-1 start"><li class="c7"><span>We also encourage to use linting services for checking JavaScript code (</span><span class="c4"><a class="c0" href="https://www.google.com/url?q=http://jshint.com/&amp;sa=D&amp;ust=1513078111099000&amp;usg=AFQjCNHQt4xTVm6WtJEcU3oZyGy7jywnag">http://jshint.com/</a></span><span>&nbsp;and </span><span class="c4"><a class="c0" href="https://www.google.com/url?q=http://www.jslint.com/&amp;sa=D&amp;ust=1513078111099000&amp;usg=AFQjCNHLUGFzEB9zD4O7C_cHE_YZMVs9Gg">http://www.jslint.com/</a></span><span>)</span></li></ul><ul class="c9 lst-kix_v5j3xgutpoaa-0"><li class="c10 c11"><span class="c5">The service should work on modern browsers, especially Firefox or Chrome which conform to standards rather well</span></li><li class="c10 c11"><span class="c5">Code should be commented well enough</span></li><li class="c10 c11"><span>Although in real life you might use an existing django app for some parts of your project, beware of “externalizing” all aspects of the project. We will only grade the part you wrote.</span></li></ul><h3 class="c1" id="h.3njnap41txgh"><span class="c29 c12">Signs of Quality</span></h3><ul class="c9 lst-kix_szsas7qp76jx-0 start"><li class="c10 c11"><span class="c5">Reusability</span></li><li class="c10 c11"><span class="c5">Modularity</span></li><li class="c10 c11"><span>Versatile use of Django’s features</span></li><li class="c10 c11"><span class="c5">Sensible URL scheme (do not create a ‘single page app’)</span></li><li class="c10 c11"><span>Security (basic security can be circumvented, e.g. acquiring other user’s session/credentials, privilege escalation, injection attacks etc. </span><span class="c12">TEST ENOUGH</span><span class="c5">)</span></li><li class="c10 c11"><span class="c5">Going beyond the basics</span></li><li class="c10 c11"><span>Crash &amp; idiot proof (</span><span class="c12">TEST ENOUGH</span><span class="c5">)</span></li></ul><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span>Almost every student project in the past has had security flaws that are easy to exploit. Make sure yours is not one of those - </span><span class="c33 c34 c12">TEST ENOUGH</span></p><h3 class="c1" id="h.1smu0vqwb5lc"><span class="c29 c12">Functional Requirements and Grading</span></h3><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c5">Please note that in order to get max points, the solution needs to be well done, not just something resembling a solution. Where minimum points have been listed, you will get minimum points for a working solution that fulfills requirements. In general, working solution is worth half of the maximum points in order to get full points the implemented feature needs to be of excellent quality. &nbsp;</span></p><p class="c10 c14"><span class="c5"></span></p><h4 class="c18" id="h.6shd19ixa10"><span class="c24">Mandatory Requirements</span></h4><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c13">Minimum functional requirements</span></p><ul class="c9 lst-kix_uhqtmz33344-0 start"><li class="c10 c11"><span class="c5">Register as a player and developer</span></li><li class="c10 c11"><span class="c5">As a developer: add games to their inventory, see list of game sales</span></li><li class="c10 c11"><span class="c5">As a player: buy games, play games, see game high scores and record their score to it</span></li></ul><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c12">Authentication</span><span class="c12">&nbsp;</span><span>(</span><span class="c3">mandatory</span><span class="c5">, 100-200 points):</span></p><ul class="c9 lst-kix_byknegote15s-0 start"><li class="c10 c11"><span>Login, logout and </span><span>register </span><span>(both as player or developer). Email validation is not required for the minimum points but is required to get more than 100 points. For dealing with email in Django see </span><span class="c4"><a class="c0" href="https://www.google.com/url?q=https://docs.djangoproject.com/en/1.11/topics/email/%23email-backends&amp;sa=D&amp;ust=1513078111102000&amp;usg=AFQjCNF1i2dFBE4y1e_cyCBVE_X1qVHXhw">https://docs.djangoproject.com/en/1.11/topics/email/#email-backends</a></span><span>&nbsp;</span><span class="c15">You do not need to configure a real SMTP-server, using Django's Console Backend is enough for full points.</span></li><li class="c10 c11"><span class="c33 c34 c12">Use Django auth</span></li></ul><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c12">Basic player functionalities </span><span>(</span><span class="c3">mandatory</span><span class="c5">, 100-300 points):</span></p><ul class="c9 lst-kix_nw6zz2tsgbnd-0 start"><li class="c10 c11"><span>Buy games, payment is handled by the course’s mockup payment service: </span><span class="c4"><a class="c0" href="https://www.google.com/url?q=http://payments.webcourse.niksula.hut.fi/&amp;sa=D&amp;ust=1513078111103000&amp;usg=AFQjCNGMgMufsbjklWxMuNeXdaXouGkFEg">http://payments.webcourse.niksula.hut.fi/</a></span><span>&nbsp;</span></li><li class="c10 c11"><span class="c5">Play games. See also game/service interaction </span></li><li class="c10 c11"><span>Security restrictions</span><span class="c5">, e.g. player is only allowed to play the games they’ve purchased</span></li><li class="c10 c11"><span class="c5">Also consider how your players will find games (are they in a category, is there a search functionality?)</span></li></ul><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c12">Basic developer functionalities</span><span>&nbsp;(</span><span class="c3">mandatory</span><span class="c5">&nbsp;100-200 points):</span></p><ul class="c9 lst-kix_rhs1mat6mkey-0 start"><li class="c10 c11"><span>Add a game (URL) and set price for that game</span><span class="c5">&nbsp;and manage that game (remove, modify)</span></li><li class="c10 c11"><span class="c5">Basic game inventory and sales statistics (how many of the developers' games have been bought and when)</span></li><li class="c10 c11"><span>Security restrictions</span><span class="c5">, e.g. developers are only allowed to modify/add/etc. their own games, developer can only add games to their own inventory, etc.</span></li></ul><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c12">Game/service interaction</span><span>&nbsp;(</span><span class="c3">mandatory</span><span class="c5">&nbsp;100-200 points):</span></p><ul class="c9 lst-kix_u77qi7lsfl4d-0 start"><li class="c10 c11"><span class="c5">When player has finished playing a game (or presses submit score), the game sends a postMessage to the parent window containing the current score. This score must be recorded to the player's scores and to the global high score list for that game. See section on Game Developer Information for details.</span></li><li class="c10 c11"><span class="c5">Messages from service to the game must be implemented as well</span></li></ul><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c12">Quality of Work</span><span>&nbsp;(</span><span class="c3">mandatory</span><span class="c5">&nbsp;0-100 points)</span></p><ul class="c9 lst-kix_lbu5k2sy6tm6-0 start"><li class="c10 c11"><span class="c5">Quality of code (structure of the application, comments)</span></li><li class="c10 c11"><span>Purposeful use of framework (Don't-Repeat-Yourself principle, Model-View-Template separation of concerns)</span></li><li class="c10 c11"><span class="c5">User experience (styling, interaction)</span></li><li class="c10 c11"><span class="c5">Meaningful testing</span></li></ul><p class="c10 c14"><span class="c33 c34 c12"></span></p><p class="c10"><span class="c12">Non-functional requirements </span><span>(</span><span class="c3">mandatory </span><span class="c5">0-200 points)</span></p><ul class="c9 lst-kix_7y3x367mfnqx-0 start"><li class="c10 c11"><span>Project plan</span><span class="c5">&nbsp;(part of final grading, max. 50 points)</span></li><li class="c10 c11"><span class="c5">Overall documentation, demo, teamwork, and project management as seen from the history of your GitLab project (and possible other sources that you submit in your final report)</span></li></ul><h4 class="c18" id="h.17lnm0zf4qam"><span class="c24">More Features</span></h4><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c12">Save/load and resolution feature </span><span class="c5">(0-100 points):</span></p><ul class="c9 lst-kix_rnjvm95db21x-0 start"><li class="c10 c11"><span class="c5">The service supports saving and loading for games with the simple message protocol described in Game Developer Information</span></li></ul><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c12">3rd party login</span><span>&nbsp;(0-100 points)</span></p><ul class="c9 lst-kix_y6eff3qfjhog-0 start"><li class="c10 c11"><span>Allow OpenID, Gmail or Facebook login to your system. </span><span>This is the only feature where you</span><span class="c5">&nbsp;are supposed to use third party Django apps in your service.</span></li></ul><p class="c10 c14"><span class="c33 c12 c34"></span></p><p class="c10"><span class="c12">RESTful API</span><span class="c5">&nbsp;(0-100 points)</span></p><ul class="c9 lst-kix_y6eff3qfjhog-0"><li class="c10 c11"><span class="c5">Design and Implement some RESTful API to the service</span></li><li class="c10 c11"><span>E.g. showing available games, high scores, </span><span>showing sales for game developers</span><span class="c5">&nbsp;(remember authentication)</span></li></ul><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c12">Own game</span><span>&nbsp;(0-100 points)</span></p><ul class="c9 lst-kix_o555f5t1debk-0 start"><li class="c10 c11"><span class="c5">Develop a simple game in JavaScript that communicates with the service (at least high score, save, load)</span></li><li class="c10 c11"><span class="c5">Note that it does not need to be the greatest game ever, going a little beyond the given example test game is enough.</span></li><li class="c10 c11"><span class="c5">Also note, that you can only get points for one game that you develop. </span></li><li class="c10 c11"><span class="c5">You can host the game as a static file in your Django project or elsewhere. But you should include it in your repository.</span></li><li class="c10 c11"><span class="c13">Do not start this before you have a working implementation of the service</span></li></ul><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c12">Mobile Friendly</span><span>&nbsp;(0-50 points)</span></p><ul class="c9 lst-kix_b2ycf3yso1g8-0 start"><li class="c10 c11"><span class="c5">Attention is paid to usability on both traditional computers and mobile devices (smart phones/tablets)</span></li><li class="c10 c11"><span>It works with devices with varying screen width and is usable with touch based devices (see e.g. </span><span class="c4"><a class="c0" href="https://www.google.com/url?q=http://en.wikipedia.org/wiki/Responsive_web_design&amp;sa=D&amp;ust=1513078111108000&amp;usg=AFQjCNEq9XIaX2L-urjbCs_WJbog4C7ZUw">http://en.wikipedia.org/wiki/Responsive_web_design</a></span><span class="c5">&nbsp;)</span></li></ul><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c12">Social media sharing</span><span class="c5">&nbsp;(0-50 points)</span></p><ul class="c9 lst-kix_oyzbjs17clv6-0 start"><li class="c10 c11"><span class="c5">Enable sharing games in some social media site (Facebook, Twitter, Google+, etc.)</span></li><li class="c10 c11"><span class="c5">Focus on the metadata, so that the shared game is “advertised” well (e.g. instead of just containing a link to the service, the shared items should have a sensible description and an image)</span></li></ul><h2 class="c31" id="h.do0h1n-l26098"><span class="c12 c25">Requirements for Different Stages</span></h2><h3 class="c1" id="h.filjqb-73910d"><span class="c29 c12">Project Plan</span></h3><p class="c19"><span>General description of what you are doing and how you are doing that (what kinds of views, models are needed), how they relate to each other, and what is the implementation order and timetable. We offer </span><span class="c4"><a class="c0" href="https://www.google.com/url?q=https://version.aalto.fi/gitlab/lehtint6/sample-project&amp;sa=D&amp;ust=1513078111110000&amp;usg=AFQjCNHbNcxMj0fAWmWXYLHYlXuQEOG0Wg">one sample of project plan structure</a></span><span class="c5">. (you plan should have a lot more content in it)</span></p><ul class="c9 lst-kix_hso0umkddkab-0 start"><li class="c6"><span class="c5">What features you plan to implement?</span></li><li class="c6"><span class="c5">Are there some extra features not listed in the project description what you plan to implement?</span></li><li class="c6"><span class="c5">For each feature, how do you plan to implement it? </span></li><li class="c6"><span class="c5">Adding information on how you plan on working on the project is recommended as well (will you meet face-to-face regularly, will use some project management tools, etc.)</span></li><li class="c6"><span>Give an initial draft of what models you plan to have and what fields those models have. </span><span class="c15">Note that Django already has a user mode</span><span class="c5">l.</span></li></ul><h3 class="c1" id="h.pe0wio-n08g2z"><span class="c29 c12">Final Submission</span></h3><p class="c19"><span>When submitting your project, 1) create an issue and assign that to </span><span class="c12">to the same person that gave you feedback on the original project plan</span><span class="c5">&nbsp;2) add the following information to your Readme.md (you can also link to a separate report from your readme):</span></p><p class="c19 c14"><span class="c5"></span></p><ul class="c9 lst-kix_r9jsreb2ljz7-0 start"><li class="c6"><span class="c5">Your names and student IDs</span></li><li class="c6"><span>What features you implemented and how much points you would like to give to yourself from those? Where do you feel that you were successful and where you had most problems.</span><span class="c5">&nbsp;Give sufficient details, this will influence the non-functional points awarded.</span></li><li class="c6"><span class="c5">How did you divide the work between the team members - who did what?</span></li><li class="c6"><span>Instructions how to use your application and </span><span class="c12">link to Heroku</span><span class="c5">&nbsp;where it is deployed.</span></li></ul><ul class="c9 lst-kix_r9jsreb2ljz7-1 start"><li class="c19 c39 c41"><span class="c5">If a specific account/password (e.g. game developer) is required to try out and test some aspects of the work, please provide the details.</span></li></ul><h3 class="c1" id="h.txrfj0-x8ebwd"><span class="c29 c12">Project Demonstrations</span></h3><ul class="c9 lst-kix_g1n6jxlj1l11-0 start"><li class="c6"><span class="c5">30 min demo with course personnel</span></li><li class="c6"><span class="c5">whole group required to be present</span></li><li class="c6"><span>booking system will be available afte</span><span>r the exam week in February 2018.</span></li></ul><p class="c19 c14"><span class="c5"></span></p><h3 class="c1" id="h.m1wuu4oztxex"><span class="c32">Grading</span></h3><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span>In the grading of previously listed features, </span><span>correctness, security, coding style, usability, documentatio</span><span>n, and your own tests will all be considered. Generally all members of the group receive the same grade from the project but </span><span class="c28">exceptions can be made</span><span class="c5">&nbsp;if the workload isn't distributed roughly equally. Exceptions can also be suggested by the group if someone has done more than their fair share of the work.</span></p><p class="c10 c14"><span class="c5"></span></p><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c12">Tentative</span><span class="c5">&nbsp;grade limits:</span></p><ul class="c9 lst-kix_flyho7cusegr-0 start"><li class="c10 c11"><span class="c5">Grade +1 &nbsp;900 points (minimum to pass the project)</span></li><li class="c10 c11"><span class="c5">Grade +2 1100 points</span></li><li class="c10 c11"><span class="c5">Grade +3 1400 points</span></li></ul><p class="c10 c14"><span class="c5"></span></p><p class="c10"><span class="c5">The exact grade limits will be decided after all the projects have been delivered. Also notice that there are 1700 points in total.</span></p><p class="c10 c14"><span class="c5"></span></p><h4 class="c18" id="h.rkrqk9sfjgbv"><span class="c24">Disclaimer</span></h4><p class="c10"><span class="c13">By granting us access to your project you also acknowledge that the contents of the project can be used for research and improving the project. Any personally identifying information will not be published.</span></p><p class="c10 c14"><span class="c5 c30"></span></p></div><div id="footer"><span>Julkaisija: <a href="https://docs.google.com/" target="_blank" title="Learn more about Google Drive">Google Drive</a></span><span class="dash">–</span><a href="https://docs.google.com/abuse?id=e/2PACX-1vT0vtbXEBMBM6EhWzK4URkA0gAzTALgGltqCBMl0XQHrO4fBOtPhp0P7RiCda9DK9_TL8dN4gdzkXsL">Ilmoita väärinkäytöstä</a><span class="dash">–</span><span>Päivitetään automaattisesti 5 minuutin välein</span></div><script type="text/javascript">(function(){var k="undefined"!=typeof window&&window===this?this:"undefined"!=typeof global&&null!=global?global:this,aa="function"==typeof Object.create?Object.create:function(a){function b(){}b.prototype=a;return new b},ba;if("function"==typeof Object.setPrototypeOf)ba=Object.setPrototypeOf;else{var ca;a:{var da={w:!0},ea={};try{ea.__proto__=da;ca=ea.w;break a}catch(a){}ca=!1}ba=ca?function(a,b){a.__proto__=b;if(a.__proto__!==b)throw new TypeError(a+" is not extensible");return a}:null}var fa=ba;
+function m(a,b){a.prototype=aa(b.prototype);a.prototype.constructor=a;if(fa)fa(a,b);else for(var c in b)if("prototype"!=c)if(Object.defineProperties){var d=Object.getOwnPropertyDescriptor(b,c);d&&Object.defineProperty(a,c,d)}else a[c]=b[c];a.s=b.prototype}var ha="function"==typeof Object.defineProperties?Object.defineProperty:function(a,b,c){a!=Array.prototype&&a!=Object.prototype&&(a[b]=c.value)};function n(){n=function(){};k.Symbol||(k.Symbol=ia)}
+var ia=function(){var a=0;return function(b){return"jscomp_symbol_"+(b||"")+a++}}();function p(){n();var a=k.Symbol.iterator;a||(a=k.Symbol.iterator=k.Symbol("iterator"));"function"!=typeof Array.prototype[a]&&ha(Array.prototype,a,{configurable:!0,writable:!0,value:function(){return ja(this)}});p=function(){}}function ja(a){var b=0;return ka(function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}})}function ka(a){p();a={next:a};a[k.Symbol.iterator]=function(){return this};return a}
+function la(a){p();var b=a[Symbol.iterator];return b?b.call(a):ja(a)}function ma(a,b){if(b){var c=k;a=a.split(".");for(var d=0;d<a.length-1;d++){var e=a[d];e in c||(c[e]={});c=c[e]}a=a[a.length-1];d=c[a];b=b(d);b!=d&&null!=b&&ha(c,a,{configurable:!0,writable:!0,value:b})}}function q(a,b){return Object.prototype.hasOwnProperty.call(a,b)}
+ma("WeakMap",function(a){function b(a){this.a=(f+=Math.random()+1).toString();if(a){n();p();a=la(a);for(var b;!(b=a.next()).done;)b=b.value,this.set(b[0],b[1])}}function c(a){q(a,e)||ha(a,e,{value:{}})}function d(a){var b=Object[a];b&&(Object[a]=function(a){c(a);return b(a)})}if(function(){if(!a||!Object.seal)return!1;try{var b=Object.seal({}),c=Object.seal({}),d=new a([[b,2],[c,3]]);if(2!=d.get(b)||3!=d.get(c))return!1;d.delete(b);d.set(c,4);return!d.has(b)&&4==d.get(c)}catch(r){return!1}}())return a;
+var e="$jscomp_hidden_"+Math.random().toString().substring(2);d("freeze");d("preventExtensions");d("seal");var f=0;b.prototype.set=function(a,b){c(a);if(!q(a,e))throw Error("WeakMap key fail: "+a);a[e][this.a]=b;return this};b.prototype.get=function(a){return q(a,e)?a[e][this.a]:void 0};b.prototype.has=function(a){return q(a,e)&&q(a[e],this.a)};b.prototype.delete=function(a){return q(a,e)&&q(a[e],this.a)?delete a[e][this.a]:!1};return b});
+ma("Map",function(a){function b(){var a={};return a.h=a.next=a.head=a}function c(a,b){var c=a.a;return ka(function(){if(c){for(;c.head!=a.a;)c=c.h;for(;c.next!=c.head;)return c=c.next,{done:!1,value:b(c)};c=null}return{done:!0,value:void 0}})}function d(a,b){var c=b&&typeof b;"object"==c||"function"==c?f.has(b)?c=f.get(b):(c=""+ ++g,f.set(b,c)):c="p_"+b;var d=a.b[c];if(d&&q(a.b,c))for(a=0;a<d.length;a++){var e=d[a];if(b!==b&&e.key!==e.key||b===e.key)return{id:c,list:d,index:a,f:e}}return{id:c,list:d,
+index:-1,f:void 0}}function e(a){this.b={};this.a=b();this.size=0;if(a){a=la(a);for(var c;!(c=a.next()).done;)c=c.value,this.set(c[0],c[1])}}if(function(){if(!a||!a.prototype.entries||"function"!=typeof Object.seal)return!1;try{var b=Object.seal({x:4}),c=new a(la([[b,"s"]]));if("s"!=c.get(b)||1!=c.size||c.get({x:4})||c.set({x:4},"t")!=c||2!=c.size)return!1;var d=c.entries(),e=d.next();if(e.done||e.value[0]!=b||"s"!=e.value[1])return!1;e=d.next();return e.done||4!=e.value[0].x||"t"!=e.value[1]||!d.next().done?
+!1:!0}catch(G){return!1}}())return a;n();p();var f=new WeakMap;e.prototype.set=function(a,b){var c=d(this,a);c.list||(c.list=this.b[c.id]=[]);c.f?c.f.value=b:(c.f={next:this.a,h:this.a.h,head:this.a,key:a,value:b},c.list.push(c.f),this.a.h.next=c.f,this.a.h=c.f,this.size++);return this};e.prototype.delete=function(a){a=d(this,a);return a.f&&a.list?(a.list.splice(a.index,1),a.list.length||delete this.b[a.id],a.f.h.next=a.f.next,a.f.next.h=a.f.h,a.f.head=null,this.size--,!0):!1};e.prototype.clear=function(){this.b=
+{};this.a=this.a.h=b();this.size=0};e.prototype.has=function(a){return!!d(this,a).f};e.prototype.get=function(a){return(a=d(this,a).f)&&a.value};e.prototype.entries=function(){return c(this,function(a){return[a.key,a.value]})};e.prototype.keys=function(){return c(this,function(a){return a.key})};e.prototype.values=function(){return c(this,function(a){return a.value})};e.prototype.forEach=function(a,b){for(var c=this.entries(),d;!(d=c.next()).done;)d=d.value,a.call(b,d[1],d[0],this)};e.prototype[Symbol.iterator]=
+e.prototype.entries;var g=0;return e});var t=this;function na(){}
+function u(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";
+else if("function"==b&&"undefined"==typeof a.call)return"object";return b}function oa(a){var b=typeof a;return"object"==b&&null!=a||"function"==b}function pa(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var b=c.slice();b.push.apply(b,arguments);return a.apply(this,b)}}
+function qa(a,b){function c(){}c.prototype=b.prototype;a.s=b.prototype;a.prototype=new c;a.prototype.constructor=a;a.C=function(a,c,f){for(var d=Array(arguments.length-2),e=2;e<arguments.length;e++)d[e-2]=arguments[e];return b.prototype[c].apply(a,d)}};function ra(a){ra[" "](a);return a}ra[" "]=na;function sa(a,b,c){return Object.prototype.hasOwnProperty.call(a,b)?a[b]:a[b]=c(b)};function ta(a){return sa(a.prototype,"$$generatedClassName",function(){return"Class$obf_"+{valueOf:function(){return++ua}}})}var ua=1E3;function v(){}v.prototype.i=function(){return va(this)};v.prototype.toString=function(){return w(y(z(this.constructor)))+"@"+w((this.i()>>>0).toString(16))};function A(){this.b=null;this.c=!1;this.a=null}m(A,v);A.prototype.g=function(a){return Error(a)};function wa(a,b){a.a=b;if(null!=b)try{b.__java$exception=a}catch(c){}}function xa(a){if(a.c&&"__noinit__"!==a.a){var b=null==a.b?null:a.b.replace(/\n/g," ");b=ya(a,b);b=a.g(b);if(!("stack"in b))try{throw b;}catch(c){}wa(a,b)}}A.prototype.toString=function(){return ya(this,this.b)};function ya(a,b){a=y(z(a.constructor));return null==b?a:w(a)+": "+w(b)};function za(){A.call(this)}m(za,A);function Aa(){A.call(this)}m(Aa,za);function Ba(a,b){this.b=a;this.a=b}m(Ba,v);function y(a){var b=ta(a.b);0!=a.a&&(b="L"+w(b)+";");a=a.a;for(var c="",d=0;d<a;d++)c=w(c)+w("[");return w(c)+w(b)}Ba.prototype.toString=function(){return w("class ")+w(y(this))};function z(a,b){var c=b||0;return sa(a.prototype,"$$class/"+c,function(){return new Ba(a,c)})};function va(a){return a.u||(Object.defineProperties(a,{u:{value:++Ca,enumerable:!1}}),a.u)}var Ca=0;function Da(){A.call(this)}m(Da,Aa);function Ea(){A.call(this)}m(Ea,Da);Ea.prototype.g=function(a){return new TypeError(a)};function Fa(a,b){return"string"==typeof a?a.charCodeAt(b):a.F.charCodeAt(b)};function w(a){if(null==a)a="null";else if(a instanceof Array){var b=a.B;a=y(b?z(b.G,b.D):z(v,1))+"@"+(va(a)>>>0).toString(16)}else a=a.toString();return a}function Ga(a){if(65536<=a){var b=56320+(a-65536&1023)&65535;return w(String.fromCharCode(55296+(a-65536>>10&1023)&65535))+w(String.fromCharCode(b))}return String.fromCharCode(a&65535)}function Ha(a,b){var c=b,d=a.length;b=Fa(a,c++);var e;if(d=55296<=b&&56319>=b&&c<d)a=e=Fa(a,c),d=56320<=a&&57343>=a;return d?65536+((b&1023)<<10)+(e&1023):b};function Ia(a,b){return null==a?a:b?decodeURI(a):decodeURIComponent(a)};var Ja=/^(?:([^:/?#.]+):)?(?:\/\/(?:([^/?#]*)@)?([^/#?]*?)(?::([0-9]+))?(?=[/#?]|$))?([^?#]+)?(?:\?([^#]*))?(?:#([\S\s]*))?$/;function Ka(a){a=Ja.exec(a);for(var b=[],c=0;7>=c;c++)a.length<=c||null==a[c]?b.push(null):b.push(a[c]);return b}
+function La(a,b){var c=Ga(35);c=a.indexOf(c);c=0>c?a.length:c;a:{var d=0;for(var e=b.length;0<(d=a.indexOf(b,d))&&d<c;){var f=Ha(a,d-1);if(38==f||63==f){if(d+e>=a.length)break a;f=Ha(a,d+e);if(61==f||38==f||35==f)break a}d+=e+1}d=-1}if(0>d)return null;e=d;f=Ga(38);e=a.indexOf(f,e);if(0>e||e>c)e=c;d+=b.length+1;b=Math.min(a.length,d);a=a.substr(b,Math.min(a.length,Math.max(d,e))-b);c=" ";for(b=0;0<=(b=c.indexOf("\\",b));)d=36==c.charCodeAt(b+1)?w(c.substr(0,b-0))+"$":w(c.substr(0,b-0)),e=++b,c=d+w(c.substr(e));
+a=a.replace(/\+/g,c);return Ia(a,!1)};var Ma=String.prototype.trim?function(a){return a.trim()}:function(a){return/^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(a)[1]},Na=/&/g,Oa=/</g,Pa=/>/g,Qa=/"/g,Ra=/'/g,Sa=/\x00/g,Ta=/[\x00&<>"']/;function Ua(a,b){return a<b?-1:a>b?1:0};var Va=Array.prototype.indexOf?function(a,b){return Array.prototype.indexOf.call(a,b,void 0)}:function(a,b){if("string"==typeof a)return"string"==typeof b&&1==b.length?a.indexOf(b,0):-1;for(var c=0;c<a.length;c++)if(c in a&&a[c]===b)return c;return-1};function B(a,b){this.a=[];this.b=b;for(var c=!0,d=a.length-1;0<=d;d--){var e=a[d]|0;c&&e==b||(this.a[d]=e,c=!1)}}var Wa={};function C(a){if(-128<=a&&128>a){var b=Wa[a];if(b)return b}b=new B([a|0],0>a?-1:0);-128<=a&&128>a&&(Wa[a]=b);return b}function D(a){if(isNaN(a)||!isFinite(a))return Xa;if(0>a)return E(D(-a));for(var b=[],c=1,d=0;a>=c;d++)b[d]=a/c|0,c*=4294967296;return new B(b,0)}var Xa=C(0),F=C(1),Ya=C(16777216);
+function H(a){if(-1==a.b)return-H(E(a));for(var b=0,c=1,d=0;d<a.a.length;d++){var e=I(a,d);b+=(0<=e?e:4294967296+e)*c;c*=4294967296}return b}B.prototype.toString=function(a){a=a||10;if(2>a||36<a)throw Error("radix out of range: "+a);if(J(this))return"0";if(-1==this.b)return"-"+E(this).toString(a);for(var b=D(Math.pow(a,6)),c=this,d="";;){var e=Za(c,b);c=K(c,L(e,b));var f=((0<c.a.length?c.a[0]:c.b)>>>0).toString(a);c=e;if(J(c))return f+d;for(;6>f.length;)f="0"+f;d=""+f+d}};
+function I(a,b){return 0>b?0:b<a.a.length?a.a[b]:a.b}function J(a){if(0!=a.b)return!1;for(var b=0;b<a.a.length;b++)if(0!=a.a[b])return!1;return!0}function M(a,b){a=K(a,b);return-1==a.b?-1:J(a)?0:1}function E(a){for(var b=a.a.length,c=[],d=0;d<b;d++)c[d]=~a.a[d];return(new B(c,~a.b)).add(F)}
+B.prototype.add=function(a){for(var b=Math.max(this.a.length,a.a.length),c=[],d=0,e=0;e<=b;e++){var f=d+(I(this,e)&65535)+(I(a,e)&65535),g=(f>>>16)+(I(this,e)>>>16)+(I(a,e)>>>16);d=g>>>16;f&=65535;g&=65535;c[e]=g<<16|f}return new B(c,c[c.length-1]&-2147483648?-1:0)};function K(a,b){return a.add(E(b))}
+function L(a,b){if(J(a)||J(b))return Xa;if(-1==a.b)return-1==b.b?L(E(a),E(b)):E(L(E(a),b));if(-1==b.b)return E(L(a,E(b)));if(0>M(a,Ya)&&0>M(b,Ya))return D(H(a)*H(b));for(var c=a.a.length+b.a.length,d=[],e=0;e<2*c;e++)d[e]=0;for(e=0;e<a.a.length;e++)for(var f=0;f<b.a.length;f++){var g=I(a,e)>>>16,h=I(a,e)&65535,l=I(b,f)>>>16,r=I(b,f)&65535;d[2*e+2*f]+=h*r;$a(d,2*e+2*f);d[2*e+2*f+1]+=g*r;$a(d,2*e+2*f+1);d[2*e+2*f+1]+=h*l;$a(d,2*e+2*f+1);d[2*e+2*f+2]+=g*l;$a(d,2*e+2*f+2)}for(e=0;e<c;e++)d[e]=d[2*e+1]<<
+16|d[2*e];for(e=c;e<2*c;e++)d[e]=0;return new B(d,0)}function $a(a,b){for(;(a[b]&65535)!=a[b];)a[b+1]+=a[b]>>>16,a[b]&=65535,b++}
+function Za(a,b){if(J(b))throw Error("division by zero");if(J(a))return Xa;if(-1==a.b)return-1==b.b?Za(E(a),E(b)):E(Za(E(a),b));if(-1==b.b)return E(Za(a,E(b)));if(30<a.a.length){if(-1==a.b||-1==b.b)throw Error("slowDivide_ only works with positive integers.");for(var c=F;0>=M(b,a);)c=ab(c,1),b=ab(b,1);var d=N(c,1),e=N(b,1);b=N(b,2);for(c=N(c,2);!J(b);){var f=e.add(b);0>=M(f,a)&&(d=d.add(c),e=f);b=N(b,1);c=N(c,1)}return d}for(c=Xa;0<=M(a,b);){d=Math.max(1,Math.floor(H(a)/H(b)));e=Math.ceil(Math.log(d)/
+Math.LN2);e=48>=e?1:Math.pow(2,e-48);f=D(d);for(var g=L(f,b);-1==g.b||0<M(g,a);)d-=e,f=D(d),g=L(f,b);J(f)&&(f=F);c=c.add(f);a=K(a,g)}return c}B.prototype.and=function(a){for(var b=Math.max(this.a.length,a.a.length),c=[],d=0;d<b;d++)c[d]=I(this,d)&I(a,d);return new B(c,this.b&a.b)};B.prototype.or=function(a){for(var b=Math.max(this.a.length,a.a.length),c=[],d=0;d<b;d++)c[d]=I(this,d)|I(a,d);return new B(c,this.b|a.b)};
+B.prototype.xor=function(a){for(var b=Math.max(this.a.length,a.a.length),c=[],d=0;d<b;d++)c[d]=I(this,d)^I(a,d);return new B(c,this.b^a.b)};function ab(a,b){var c=b>>5;b%=32;for(var d=a.a.length+c+(0<b?1:0),e=[],f=0;f<d;f++)e[f]=0<b?I(a,f-c)<<b|I(a,f-c-1)>>>32-b:I(a,f-c);return new B(e,a.b)}function N(a,b){var c=b>>5;b%=32;for(var d=a.a.length-c,e=[],f=0;f<d;f++)e[f]=0<b?I(a,f+c)>>>b|I(a,f+c+1)<<32-b:I(a,f+c);return new B(e,a.b)};function bb(a,b,c){for(var d in a)b.call(c,a[d],d,a)};K(ab(F,32),F);C(65535);K(ab(F,128),F);var O;a:{var cb=t.navigator;if(cb){var db=cb.userAgent;if(db){O=db;break a}}O=""}function P(a){return-1!=O.indexOf(a)};var eb=P("Opera"),Q=P("Trident")||P("MSIE"),fb=P("Edge"),gb=fb||Q,hb=P("Gecko")&&!(-1!=O.toLowerCase().indexOf("webkit")&&!P("Edge"))&&!(P("Trident")||P("MSIE"))&&!P("Edge"),ib=-1!=O.toLowerCase().indexOf("webkit")&&!P("Edge"),jb=P("Macintosh");function kb(){var a=t.document;return a?a.documentMode:void 0}var lb;
+a:{var mb="",nb=function(){var a=O;if(hb)return/rv:([^\);]+)(\)|;)/.exec(a);if(fb)return/Edge\/([\d\.]+)/.exec(a);if(Q)return/\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);if(ib)return/WebKit\/(\S+)/.exec(a);if(eb)return/(?:Version)[ \/]?(\S+)/.exec(a)}();nb&&(mb=nb?nb[1]:"");if(Q){var ob=kb();if(null!=ob&&ob>parseFloat(mb)){lb=String(ob);break a}}lb=mb}var pb=lb,qb={},rb;var sb=t.document,tb=kb();rb=sb&&Q?tb||("CSS1Compat"==sb.compatMode?parseInt(pb,10):5):void 0;function R(){this.b=this.b;this.a=this.a}R.prototype.b=!1;R.prototype.v=function(){this.b||(this.b=!0,this.g())};R.prototype.g=function(){if(this.a)for(;this.a.length;)this.a.shift()()};function ub(a){a&&"function"==typeof a.v&&a.v()};function S(){this.a="";this.b=vb}S.prototype.o=!0;S.prototype.m=function(){return this.a};function wb(a){if(a instanceof S&&a.constructor===S&&a.b===vb)return a.a;u(a);return"type_error:SafeUrl"}var xb=/^(?:(?:https?|mailto|ftp):|[^:/?#]*(?:[/?#]|$))/i,vb={};function yb(a){var b=new S;b.a=a;return b};function T(){this.a="";this.b=zb}T.prototype.o=!0;T.prototype.m=function(){return this.a};function Ab(a){if(a instanceof T&&a.constructor===T&&a.b===zb)return a.a;u(a);return"type_error:SafeHtml"}var zb={};var Bb=!Q||9<=Number(rb),Cb=!Q||9<=Number(rb),Db=Q&&!sa(qb,"9",function(){for(var a=0,b=Ma(String(pb)).split("."),c=Ma("9").split("."),d=Math.max(b.length,c.length),e=0;0==a&&e<d;e++){var f=b[e]||"",g=c[e]||"";do{f=/(\d*)(\D*)(.*)/.exec(f)||["","","",""];g=/(\d*)(\D*)(.*)/.exec(g)||["","","",""];if(0==f[0].length&&0==g[0].length)break;a=Ua(0==f[1].length?0:parseInt(f[1],10),0==g[1].length?0:parseInt(g[1],10))||Ua(0==f[2].length,0==g[2].length)||Ua(f[2],g[2]);f=f[3];g=g[3]}while(0==a)}return 0<=a}),
+Eb=function(){if(!t.addEventListener||!Object.defineProperty)return!1;var a=!1,b=Object.defineProperty({},"passive",{get:function(){a=!0}});t.addEventListener("test",na,b);t.removeEventListener("test",na,b);return a}();function Fb(a,b){this.type=a;this.a=this.target=b;this.g=!1}Fb.prototype.c=function(){this.g=!0};function V(a,b){Fb.call(this,a?a.type:"");this.relatedTarget=this.a=this.target=null;this.button=this.screenY=this.screenX=this.clientY=this.clientX=0;this.key="";this.metaKey=this.shiftKey=this.altKey=this.ctrlKey=!1;this.pointerId=0;this.pointerType="";this.b=null;if(a){var c=this.type=a.type,d=a.changedTouches?a.changedTouches[0]:null;this.target=a.target||a.srcElement;this.a=b;if(b=a.relatedTarget){if(hb){a:{try{ra(b.nodeName);var e=!0;break a}catch(f){}e=!1}e||(b=null)}}else"mouseover"==c?b=
+a.fromElement:"mouseout"==c&&(b=a.toElement);this.relatedTarget=b;null===d?(this.clientX=void 0!==a.clientX?a.clientX:a.pageX,this.clientY=void 0!==a.clientY?a.clientY:a.pageY,this.screenX=a.screenX||0,this.screenY=a.screenY||0):(this.clientX=void 0!==d.clientX?d.clientX:d.pageX,this.clientY=void 0!==d.clientY?d.clientY:d.pageY,this.screenX=d.screenX||0,this.screenY=d.screenY||0);this.button=a.button;this.key=a.key||"";this.ctrlKey=a.ctrlKey;this.altKey=a.altKey;this.shiftKey=a.shiftKey;this.metaKey=
+a.metaKey;this.pointerId=a.pointerId||0;this.pointerType="string"==typeof a.pointerType?a.pointerType:Gb[a.pointerType]||"";this.b=a;a.defaultPrevented&&this.c()}}qa(V,Fb);var Hb=[1,4,2],Gb={2:"touch",3:"pen",4:"mouse"};V.prototype.c=function(){V.s.c.call(this);var a=this.b;if(a.preventDefault)a.preventDefault();else if(a.returnValue=!1,Db)try{if(a.ctrlKey||112<=a.keyCode&&123>=a.keyCode)a.keyCode=-1}catch(b){}};var Ib="closure_listenable_"+(1E6*Math.random()|0),Jb=0;function Kb(a,b,c,d,e){this.listener=a;this.a=null;this.src=b;this.type=c;this.capture=!!d;this.b=e;this.key=++Jb;this.j=this.l=!1}function Lb(a){a.j=!0;a.listener=null;a.a=null;a.src=null;a.b=null};function Mb(a){this.src=a;this.a={};this.b=0}Mb.prototype.add=function(a,b,c,d,e){var f=a.toString();a=this.a[f];a||(a=this.a[f]=[],this.b++);var g;a:{for(g=0;g<a.length;++g){var h=a[g];if(!h.j&&h.listener==b&&h.capture==!!d&&h.b==e)break a}g=-1}-1<g?(b=a[g],c||(b.l=!1)):(b=new Kb(b,this.src,f,!!d,e),b.l=c,a.push(b));return b};var Nb="closure_lm_"+(1E6*Math.random()|0),Ob={},Pb=0;function Qb(a,b,c,d,e){if(d&&d.once)return Rb(a,b,c,d,e);if("array"==u(b)){for(var f=0;f<b.length;f++)Qb(a,b[f],c,d,e);return null}c=Sb(c);return a&&a[Ib]?Tb(a,b,c,oa(d)?!!d.capture:!!d,e):Ub(a,b,c,!1,d,e)}
+function Ub(a,b,c,d,e,f){if(!b)throw Error("Invalid event type");var g=oa(e)?!!e.capture:!!e,h=Vb(a);h||(a[Nb]=h=new Mb(a));c=h.add(b,c,d,g,f);if(c.a)return c;d=Wb();c.a=d;d.src=a;d.listener=c;if(a.addEventListener)Eb||(e=g),void 0===e&&(e=!1),a.addEventListener(b.toString(),d,e);else if(a.attachEvent)a.attachEvent(Xb(b.toString()),d);else if(a.addListener&&a.removeListener)a.addListener(d);else throw Error("addEventListener and attachEvent are unavailable.");Pb++;return c}
+function Wb(){var a=Yb,b=Cb?function(c){return a.call(b.src,b.listener,c)}:function(c){c=a.call(b.src,b.listener,c);if(!c)return c};return b}function Rb(a,b,c,d,e){if("array"==u(b)){for(var f=0;f<b.length;f++)Rb(a,b[f],c,d,e);return null}c=Sb(c);return a&&a[Ib]?a.a(b,c,oa(d)?!!d.capture:!!d,e):Ub(a,b,c,!0,d,e)}
+function Zb(a){if("number"!=typeof a&&a&&!a.j){var b=a.src;if(b&&b[Ib])b.b(a);else{var c=a.type,d=a.a;b.removeEventListener?b.removeEventListener(c,d,a.capture):b.detachEvent?b.detachEvent(Xb(c),d):b.addListener&&b.removeListener&&b.removeListener(d);Pb--;if(c=Vb(b)){d=a.type;if(d in c.a){var e=c.a[d],f=Va(e,a),g;(g=0<=f)&&Array.prototype.splice.call(e,f,1);g&&(Lb(a),0==c.a[d].length&&(delete c.a[d],c.b--))}0==c.b&&(c.src=null,b[Nb]=null)}else Lb(a)}}}
+function Xb(a){return a in Ob?Ob[a]:Ob[a]="on"+a}function $b(a,b,c,d){var e=!0;if(a=Vb(a))if(b=a.a[b.toString()])for(b=b.concat(),a=0;a<b.length;a++){var f=b[a];f&&f.capture==c&&!f.j&&(f=ac(f,d),e=e&&!1!==f)}return e}function ac(a,b){var c=a.listener,d=a.b||a.src;a.l&&Zb(a);return c.call(d,b)}
+function Yb(a,b){if(a.j)return!0;if(!Cb){if(!b)a:{b=["window","event"];for(var c=t,d=0;d<b.length;d++)if(c=c[b[d]],null==c){b=null;break a}b=c}d=b;b=new V(d,this);c=!0;if(!(0>d.keyCode||void 0!=d.returnValue)){a:{var e=!1;if(0==d.keyCode)try{d.keyCode=-1;break a}catch(g){e=!0}if(e||void 0==d.returnValue)d.returnValue=!0}d=[];for(e=b.a;e;e=e.parentNode)d.push(e);a=a.type;for(e=d.length-1;0<=e;e--){b.a=d[e];var f=$b(d[e],a,!0,b);c=c&&f}for(e=0;e<d.length;e++)b.a=d[e],f=$b(d[e],a,!1,b),c=c&&f}return c}return ac(a,
+new V(b,this))}function Vb(a){a=a[Nb];return a instanceof Mb?a:null}var bc="__closure_events_fn_"+(1E9*Math.random()>>>0);function Sb(a){if("function"==u(a))return a;a[bc]||(a[bc]=function(b){return a.handleEvent(b)});return a[bc]};function W(a){R.call(this);this.i=a;this.c={}}qa(W,R);var cc=[];function Tb(a,b,c,d,e){"array"!=u(c)&&(c&&(cc[0]=c.toString()),c=cc);for(var f=0;f<c.length;f++){var g=Qb(b,c[f],d||a.handleEvent,e||!1,a.i||a);if(!g)break;a.c[g.key]=g}return a}function dc(a){bb(a.c,function(a,c){this.c.hasOwnProperty(c)&&Zb(a)},a);a.c={}}W.prototype.g=function(){W.s.g.call(this);dc(this)};W.prototype.handleEvent=function(){throw Error("EventHandler.handleEvent not implemented");};function ec(a){R.call(this);this.c=a||document.body;this.i=new W(this);a=pa(ub,this.i);this.b?a():(this.a||(this.a=[]),this.a.push(a));Tb(this.i,this.c,"click",this.A,void 0)}qa(ec,R);
+ec.prototype.A=function(a){if((Bb?0==a.b.button:"click"==a.type||a.b.button&Hb[0])&&!(ib&&jb&&a.ctrlKey)&&!a.g)for(var b=a.target;b&&b!=this.c;){if(b.tagName&&"a"==b.tagName.toLowerCase()){var c=b.getAttribute("href")||b.getAttributeNS("http://www.w3.org/1999/xlink","href"),d=c;var e=d;try{var f=void 0,g=Ka(d)[3];f=null==g?null:g;var h;if(h="www.google.com"===Ia(f,!0)){var l=Ka(d)[5];h="/url"===Ia(l,!0)}if(h){var r=La(d,"q");e=r?r:La(d,"url")}}catch(U){a:{d=U;if(null!=d&&(f=d.__java$exception,null!=
+f)){U=f;break a}if(d instanceof TypeError){var x=f=new Ea,G=x;G.c=!0;G.a="__noinit__";xa(x);wa(x,d);x.b=w(d);d=f}else G=x=f=new Da,G.c=!0,G.a="__noinit__",xa(x),wa(x,d),x.b=w(d),d=f;U=d}if(!(U instanceof za))throw U.a;}e=null!=e?e:"";if(c!=e){l=void 0;h=e;b={target:"_blank",noreferrer:!0};c=window;h instanceof S?g=h:(g="undefined"!=typeof h.href?h.href:String(h),g instanceof S||(g=g.o?g.m():String(g),xb.test(g)||(g="about:invalid#zClosurez"),g=yb(g)));h=b.target||h.target;r=[];for(l in b)switch(l){case "width":case "height":case "top":case "left":r.push(l+
+"="+b[l]);break;case "target":case "noopener":case "noreferrer":break;default:r.push(l+"="+(b[l]?1:0))}l=r.join(",");(P("iPhone")&&!P("iPod")&&!P("iPad")||P("iPad")||P("iPod"))&&c.navigator&&c.navigator.standalone&&h&&"_self"!=h?(r=l=c.document.createElement("A"),g instanceof S||g instanceof S||(g=g.o?g.m():String(g),xb.test(g)||(g="about:invalid#zClosurez"),g=yb(g)),r.href=wb(g),l.setAttribute("target",h),b.noreferrer&&l.setAttribute("rel","noreferrer"),b=document.createEvent("MouseEvent"),b.initMouseEvent("click",
+!0,!0,c,1),l.dispatchEvent(b)):b.noreferrer?(c=c.open("",h,l),b=wb(g),c&&(gb&&-1!=b.indexOf(";")&&(b="'"+b.replace(/'/g,"%27")+"'"),c.opener=null,Ta.test(b)&&(-1!=b.indexOf("&")&&(b=b.replace(Na,"&amp;")),-1!=b.indexOf("<")&&(b=b.replace(Oa,"&lt;")),-1!=b.indexOf(">")&&(b=b.replace(Pa,"&gt;")),-1!=b.indexOf('"')&&(b=b.replace(Qa,"&quot;")),-1!=b.indexOf("'")&&(b=b.replace(Ra,"&#39;")),-1!=b.indexOf("\x00")&&(b=b.replace(Sa,"&#0;"))),g=new T,g.a='<META HTTP-EQUIV="refresh" content="0; url='+b+'">',
+c.document.write(Ab(g)),c.document.close())):(c=c.open(wb(g),h,l))&&b.noopener&&(c.opener=null);a.c();break}}b=b.parentNode}};function fc(a){new ec(a)}var X=["DOCS_installLinkReferrerSanitizer"],Y=t;X[0]in Y||!Y.execScript||Y.execScript("var "+X[0]);for(var Z;X.length&&(Z=X.shift());)X.length||void 0===fc?Y[Z]&&Y[Z]!==Object.prototype[Z]?Y=Y[Z]:Y=Y[Z]={}:Y[Z]=fc;}).call(this);
+</script><script type="text/javascript">DOCS_installLinkReferrerSanitizer();</script>
+</div>
+
+<div id="submit-progress" class="hide progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:100%;">
+    Posting submission...
+  </div>
+</div>
+
+
+
+
+
+
+<div id="loading-indicator" class="hide progress" data-msg-load="Loading exercise..." data-msg-submit="Posting submission..." data-msg-error="Communication error with the exercise.">
+  <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:100%;"></div>
+</div>
+
+<div id="quiz-success" class="hide">
+  <h3 class="text-center">Submission received.</h3>
+  <p class="text-center badge-placeholder"></p>
+  <button type="button" class="btn btn-success center-block read-feedback" data-dismiss="modal">
+    Go to feedback
+  </button>
+</div>
+
+
+</div>
+
+
+<div class="col-lg-3">
+
+    
+
+    
+      
+    
+    
+</div>
+
+
+        </div>
+        
+
+
+
+<nav class="row siblings">
+
+    
+
+    
+    
+    
+    <a href="https://plus.cs.hut.fi/wsd/2017-2018/project/" class="pull-left btn btn-link">
+        « 9. Project instructions
+    </a>
+    
+    
+
+    <span class="hidden-md hidden-sm hidden-xs" style="display: block; margin: auto; text-align: center;">
+        <a href="https://plus.cs.hut.fi/wsd/2017-2018/toc/">
+            Course materials
+        </a>
+    </span>
+
+</nav>
+
+
+    </div>
+</div>
+
+            </div>
+
+            
+            <nav class="site-footer navbar navbar-default navbar-fixed-bottom">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                        
+                        
+                        
+                        <li role="presentation"><a href="https://plus.cs.hut.fi/accounts/privacy-policy/">Privacy Policy</a></li>
+                        
+                    </ul>
+                </div>
+            </nav>
+            
+        </div>
+        <div id="page-modal" class="modal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-progress">
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:100%" data-msg-error="Loading failed!">
+                          Loading...
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-body"></div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Close
+                      </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="file-modal" class="modal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-progress">
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:100%" data-msg-error="Loading failed!">
+                          Loading...
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body"></div>
+                </div>
+            </div>
+        </div>
+        <div id="search-select-widget" class="hide">
+            <ul class="list-inline search-selected">
+                <li><button type="button"><span class="name">None</span> <span aria-label="Remove">×</span></button></li>
+            </ul>
+            <div class="input-group">
+                <span class="input-group-btn dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-default" data-toggle="dropdown" type="button" aria-label="Search">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                    <ul class="dropdown-menu search-options">
+                        <li class="not-found"><a>No matches</a></li>
+                    </ul>
+                </span>
+                <input type="text" class="form-control" placeholder="Search for...">
+            </div>
+        </div>
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-54221579-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    
+
+</body></html>

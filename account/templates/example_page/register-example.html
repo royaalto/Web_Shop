@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>{% block title %}Exercise template{% endblock %}</title>
+
+
+    <link rel="stylesheet" href="href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"">
+    <link rel="stylesheet" href="style.css">
+    <script src="Exercise%20template_files/jquery.js"></script>
+    <script src="Exercise%20template_files/bootstrap.js"></script>
+    <!--{{% block header %}}
+    {% endblock %}-->
+</head>
+<body>
+
+<!--{{% block account %}}
+{% endblock %}
+
+{{% block header %}}
+{% endblock %}
+
+{{% block navigation %}}
+{% endblock %}
+
+{{% block content %}}-->
+<div class="page-container">
+
+
+
+    <div class="container">
+        <div class="account-control">Account control bar</div>
+        <div class="header-bar row">
+            <div class="header-header col-sm-8"><h1>Logo/Header here</h1></div>
+            <div class="search-bar col-sm-4"><h6>Search bar</h6></div>
+        </div>
+        <div class="navigation-bar">Navigation bar</div>
+
+        <div class="content">
+
+            <h1>Register</h1>
+
+            <div class="register-form">
+
+                <form action="register" method="post">
+                    <input name="csrfmiddlewaretoken" value="6JOyImav61Bdkqgupjk6fHztdlZwwuvzu1xcsI1wrhy3LKpsjEzZyWRCnbsAtBZE" type="hidden">
+
+                    <div class="form-group">
+                        <label for="id_username">Username:</label>
+                        <img src="Exercise%20template_files/help_icon.png" data-toggle="tooltip" data-placement="right" title="" data-original-title="Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.">
+                        <span class="floater"><button class="btn btn-xs btn-success">Check Availbility</button></span>
+                        <input name="username" maxlength="150" class="form-control" autofocus="" required="" id="id_username" value="ef" type="text">
+                        <div class="alert alert-warning">message</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_email">Email:</label>
+                        <img src="Exercise%20template_files/help_icon.png" data-toggle="tooltip" data-placement="right" title="" data-original-title="Required. Inform a valid email address.">
+                        <input name="email" maxlength="254" class="form-control" required="" id="id_email" value="f.@d.com" type="email">
+                        <div class="alert alert-warning">message</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password1">Password:</label>
+                        <img src="Exercise%20template_files/help_icon.png" data-toggle="tooltip" data-html="true" data-placement="right" title="" data-original-title="
+                        &lt;ul&gt;
+                            &lt;li&gt;Your password can't be too similar to your other personal information.&lt;/li&gt;
+                            &lt;li&gt;Your password must contain at least 8 characters.&lt;/li&gt;
+                            &lt;li&gt;Your password can't be a commonly used password.&lt;/li&gt;
+                            &lt;li&gt;Your password can't be entirely numeric.&lt;/li&gt;
+                        &lt;/ul&gt;">
+                        <input name="password1" class="form-control" required="" id="id_password1" type="password">
+                        <div class="alert alert-warning">message</div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="id_password2">Password confirmation:</label>
+                        <img src="Exercise%20template_files/help_icon.png" data-toggle="tooltip" data-placement="right" title="" data-original-title="Enter the same password as before, for verification.">
+                        <input name="password2" class="form-control" required="" id="id_password2" type="password">
+                        <div class="alert alert-warning">message</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_user_type">User type</label>
+                        <img src="Exercise%20template_files/help_icon.png" data-toggle="tooltip" data-placement="right" title="" data-original-title="Select User type.">
+                        <select name="user_type" class="form-control" id="id_user_type">
+                            <option value="0" selected="selected"></option>
+                            <option value="1">Player</option>
+                            <option value="2">Developer</option>
+                        </select>
+                        <div class="alert alert-warning">message</div>
+                    </div>
+
+                    <div class="form-group">
+                        <input name="remember_me" id="id_remember_me" type="checkbox">
+                        <label for="id_remember_me">I Agree terms and condition.</label>
+                        <div class="alert alert-warning">message</div>
+                    </div>
+
+
+
+                    <div class="form-actions">
+                        <div class="actions">
+                            <input class="btn btn-lg btn-success" value="Register" type="submit">
+                        </div>
+                    </div>
+
+                </form>
+
+                <script>
+                $(document).ready(function(){
+                    $('[data-toggle="tooltip"]').tooltip();
+                });
+                </script>
+
+            </div>
+
+        </div>
+        <div class="footer-bar">Footer bar</div>
+    </div>
+</div>
+
+<!--{% endblock %}
+
+{{% block footer %}}
+{% endblock %}-->
+
+
+</body></html>

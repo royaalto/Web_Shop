@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}Order{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'payment/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'reset.css' %}">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<div class="page-container">
+
+
+    {% block menu %}
+    {% include "menu.html" %}
+    {% endblock %}
+
+    {% block header %}
+    {% include "header.html" %}
+    {% endblock %}
+
+    {% block navigation %}
+    {% include "navigation.html" %}
+    {% endblock %}
+
+    <div class="content">
+        {% if empty_cart %}
+        <h2>Your order is empty.</h2>
+        {% else %}
+        <h2>Order Confirmation</h2>
+        <table class="cart">
+            <thead class="cart-header">
+            <tr>
+                <th class="th-product" colspan="2">Product</th>
+                <th class="price">Price</th>
+                <th class="qty">Quantity</th>
+                <th class="sub">Subtotal</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+            <tr class="tr-item">
+                <td class="td-item td-img" width="50">
+                    {% if item.game.image2%}
+                    <img style="width: 69px;height: 69px;" src="{{ item.game.image2.url }}"
+                    alt="Image not found" onerror="this.onerror=null;this.src='/static/media/square{{item.game.id}}.png';">
+                    {% else%}
+                    <img style="width: 69px;height: 69px;" src="/static/coming_soon_square.png">
+                    {% endif %}
+                </td>
+                <td class="td-item td-name" width="">{{ item.game.name }}</td>
+                <td class="td-item price" width="10%">{{ item.game.price }}€</td>
+                <td class="td-item qty" width="10%">{{ item.qty }}</td>
+                <td class="td-item sub" width="15%">{{ item.subtotal }}€</td>
+            </tr>
+            {% endfor %}
+            <tfoot class="cart-footer">
+            <tr>
+                <th colspan="3"></th>
+                <th class="th-total" colspan="2">Total</th>
+            </tr>
+            <tr>
+                <td colspan="3"></td><td>{{ total_price }}</td>
+            </tr>
+            </tfoot>
+            </tbody>
+        </table>
+
+        <form action="http://payments.webcourse.niksula.hut.fi/pay/" method="POST">
+            <input type="hidden" id="id_pid" type="text" name="pid" value="{{pid}}" maxlength="255">
+            <input type="hidden" id="id_sid" type="text" name="sid" value="{{sid}}" maxlength="255">
+            <input type="hidden" type="text" name="amount" value="{{amount}}" id="id_amount">
+            <input type="hidden" id="id_success_url" type="text" name="success_url" value="http://{{page_url}}/payment/success" maxlength="200">
+            <input type="hidden" id="id_cancel_url" type="text" name="cancel_url" value="http://{{page_url}}/payment/cancel" maxlength="200">
+            <input type="hidden" id="id_error_url" type="text" name="error_url" value="http://{{page_url}}/payment/error" maxlength="200">
+            <input type="hidden" type="text" name="checksum" value="{{checksum}}" id="id_checksum">
+
+            <div class="actions-btns">
+                <input type="button" value="Back" id="back_btn"class="btn btn-success"/>
+                <input class="btn btn-success" type="submit" value="Accept Payment"/>
+            </div>
+        </form>
+
+        <script type="text/javascript">
+            document.getElementById("back_btn").onclick = function () {
+                location.href = "/payment/cart";
+            };
+        </script>
+        {% endif %}
+    </div>
+
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock %}
+
+</div>
+{% endblock %}

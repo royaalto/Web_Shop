@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block title %}Description Page{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'reset.css' %}">
+<link rel="stylesheet" href="{% static 'game/desc.css' %}">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock head%}
+{% block content %}
+
+<div class="page-container">
+
+    {% block menu %} 
+    {% include "menu.html" %}
+    {% endblock menu%}
+
+    {% load default_blocks %}
+    {% show_header user%}
+
+    {% block navigation %}
+    {% include "navigation.html" %}
+    {% endblock navigation%}
+
+    {% block message %}
+    {% include "message.html" %}
+    {% endblock message%}
+
+    <div class="user_content clearfix">
+        {% if extra_message %}
+        <h1 id="avaibility-extra-message">{{ extra_message }}</h1>
+        {% endif %}
+        <h4 class="user_collection"><strong>{{ game.name }}</strong></h4>
+
+        <div id="desc-game-img" class="col-sm-6">
+            <div class="desc-img-content">
+                {% if game.image%}
+                <img style="width: 450px;height: 210px;" src="{{ game.image.url }}" alt="Image not found" onerror="this.onerror=null;this.src='/static/media/image{{game.id}}.png';">
+                {% else%}
+                <img style="width: 450px;height: 210px;" src="/static/coming_soon.png">
+                {% endif %}
+            </div>
+        </div>
+
+        <div id="desc-game-data" class="col-sm-6">
+
+            <div class="game_description_text col-sm-7">
+                <div class="subtitle"><strong>Description</strong></div>
+                <div>
+                    {{ game.description }}
+                </div>
+
+            </div>
+            <div class="game_description_data col-sm-5">
+                <!--release_date,developer, total_sales,data of last sale-->
+
+                <div class="subdata">
+                    <div class="subtitle column"><strong>Release Date:</strong></div>
+                    <div class="date">{{game.release_date}}</div>
+                </div>
+
+                <div class="subdata">
+                    <div class="subtitle column"><strong>Price:</strong></div>
+                    <div class="date">{{game.priceTag}}</div>
+                </div>
+
+                <div class="subdata">
+                    <div class="subtitle column"><strong>Category:</strong></div>
+                    <div class="summary column" id="developers_list">
+                        {% for category in categories %}
+                        <a href='/search/category/{{category.id}}'>{{category.name}}</a><span>,</span>
+                        {% endfor%}
+                    </div>
+                </div>
+                <div class="subdata">
+                    <div class="summary column">
+                        <span id="game_id" style="display:none;">{{ game.pk }}</span>
+
+                        {% if owned and user.groups.all.0.name == 'Player' %}
+                        <button id="play_game_btn" class="btn btn-success">Play</button>
+                        {% elif owned == False %}
+                        <button id="buy_game_btn" class="btn btn-success" {% if in_cart %}disabled{% endif %}>Add to cart</button>
+                        {% elif owned == -1%}
+                        <br>
+                        {% elif owned == None%}
+                        <button id="login_buy_btn" class="btn btn-success">Login to buy game</button>
+                        {% endif %}
+                        {% if game.score_board%}
+                        <a href="/game/score-board/{{game.id}}/"><button id="high-score-btn" class="btn btn-success">High Score</button></a>
+                        {% endif %}
+                        <script>
+                        {% if owned and user.groups.all.0.name == 'Player' %}
+                            document.getElementById("play_game_btn").onclick = function () {
+                                location.href = "/game/play/{{game.pk}}";
+                                //alert('TODO: redirect');
+                            };
+                        {% elif owned == False %}
+                            document.getElementById("buy_game_btn").onclick = function () {
+                                var game_id = $("#game_id").text();
+                                console.log(game_id);
+
+                                $.ajax({
+                                    method: "POST",
+                                    url: '/payment/add/item/',
+                                    data: {game_id: game_id},
+                                    dataType: 'json',
+                                    headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                                    success: function(data) {
+                                        location.reload();
+                                        console.log(data);
+                                    },
+                                    error: function(data,status) {
+                                        console.log('add game failed, status: '+status);
+                                        console.log(data);
+                                    }
+                                });
+
+                            };
+                        {% elif owned == None%}
+                            document.getElementById("login_buy_btn").onclick = function () {
+                                location.href = "/account/login/";
+                            };
+                        {% endif %}
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock footer%}
+
+</div>
+{% endblock content%}

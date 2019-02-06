@@ -1,0 +1,105 @@
+body{
+    background-color: #E8FFF5;
+}
+
+.page-container {
+    padding: 0%;
+}
+
+.containerx{
+    background-color: #56E4D2;
+}
+
+.account-control{
+    background-color: #AEB3B2;
+    height: 30px;
+    text-align: center;
+}
+
+.header-bar{
+    background-color: #348A7F;
+    margin: 0px 0px;
+}
+
+.header-header {
+    background-color: #3DB569;
+    height: 100px;
+    text-align: center;
+    padding: 10px;
+}
+
+.search-bar{
+    background-color: #C348A7;
+    text-align: center;
+}
+.navigation-bar{
+    background-color: #A348A7;
+    font-size: 30px;
+    height: 60px;
+    text-align: center;
+}
+
+.footer-bar{
+    background-color: #C3C4A7;
+    font-size: 30px;
+    height: 90px;
+    text-align: center;
+}
+
+.content{
+    background-color: #FEFEFE;
+    padding: 50px 40px 50px;
+}
+
+.login-container {
+    background-color: #FEFEFE;
+    margin: 10% auto 0;
+    max-width: 45rem;
+    min-height: 30rem;
+    padding: 50px 40px 50px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 5px 30px 0 #000000;
+    position: relative;
+}
+
+.register-form{
+    padding-top: 30px;
+    max-width: 45rem;
+    min-width: 20rem;
+}
+
+div.form-group .alert{
+    margin-top: 10px;
+}
+
+.header-logo {
+    background-color: #3DB569;
+    width: 300px;
+    height: 100px;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.form-content{
+    background-color: #FFFFFF;
+    margin: 30px 0 0;
+}
+
+.actions{
+    padding: 3rem 0 0;
+}
+
+.floater{
+    float:right
+}
+
+.width-control{
+    max-width: 45rem;
+    margin: 0 auto;
+}
+
+.edit-form{
+    padding: 20px 120px  30px  70px;
+    min-width: 30em;
+}

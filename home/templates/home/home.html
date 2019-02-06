@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'reset.css' %}">
+<link rel="stylesheet" href="{% static 'home/home.css' %}">
+<script src="{% static 'home/jquery.min.js' %}"></script>
+<script src="{% static 'home/ft-carousel.min.js' %}"></script>
+
+{% endblock %}
+
+{% block content %}
+<div class="page-container">
+
+    {% block menu %}
+    {% include "menu.html" %}
+    {% endblock %}
+
+
+    {% load default_blocks %}
+    {% show_header user%}
+
+    {% block navigation %}
+    {% include "navigation.html" %}
+    {% endblock %}
+    <div class="container">
+        <div class="content">
+
+            <h2 class="fl" id>FEATURED & RECOMMENDED</h2>
+            <div class="slide">
+                <div class="ft-carousel">
+                    <ul class="carousel-inner">
+                        {% for item in game_list %}
+                        <li class="carousel-item">
+                            <a href="{{'/game/description/'}}{{item.id}}">
+                                {% if item.image %}
+                                    <img src="{{ item.image.url }}" alt="Image not found" onerror="this.onerror=null;this.src='/static/media/image{{item.id}}.png';">
+                                {% else %}
+                                    <img src="/static/coming_soon.png">
+                                {% endif %}
+                                <!--img src="http://cdn.edgecast.steamstatic.com/steam/apps/206440/capsule_616x353.jpg?t=1511581674" /-->
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                $(".ft-carousel").FtCarousel();
+            </script>
+        </div>
+    </div>
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock %}
+
+</div>
+
+{% endblock content %}

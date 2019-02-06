@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Error view{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'reset.css' %}">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<div class="page-container">
+
+
+    {% block menu %}
+    {% include "menu.html" %}
+    {% endblock %}
+
+    {% block header %}
+    {% include "header.html" %}
+    {% endblock %}
+
+    {% block navigation %}
+    {% include "navigation.html" %}
+    {% endblock %}
+
+    <div class="content">
+
+            <div class="text-center width-control">
+                <h2>Error occured</h2>
+                <div><span class="glyphicon glyphicon-remove-sign" style="font-size: 40px;color: #f00;"></span></div>
+            <p>Error occured during payment.</p>
+
+            <!--<div> website: {{ success }}</div>-->
+            </div>
+        </div>
+
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Email confirmation view{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'reset.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<div class="page-container">
+
+    {% block menu %}
+    {% include "menu.html" %}
+    {% endblock %}
+
+    <div class="container">
+
+    {% block header %}
+    {% include "header.html" %}
+    {% endblock %}
+
+    {% block navigation %}
+    {% include "navigation.html" %}
+    {% endblock %}
+
+        <div class="content">
+            <div id="verification-text" class="text-center width-control">
+
+                <h3 class="header3">Verification Email Sent</h3>
+                <p>Please check your email for a confirmation request.
+                Once you click that link, your registration will be complete.</p>
+                <p>
+                    (You don't actually have to verify your email address. Click <a href="/account/login">here</a> and login)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock %}
+
+</div>
+
+
+
+
+
+{% endblock %}

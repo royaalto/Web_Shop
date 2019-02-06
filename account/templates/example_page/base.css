@@ -1,0 +1,37 @@
+body{
+    background-color: #E8FFF5;
+}
+
+.page-container {
+    padding: 10%;
+}
+
+.form-container {
+    background-color: #FEFEFE;
+    margin: 0 auto;
+    max-width: 45rem;
+    min-height: 30rem;
+    padding: 50px 40px 50px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 5px 30px 0 #000000;
+    position: relative;
+}
+
+.header-logo {
+    background-color: #3DB569;
+    width: 300px;
+    height: 100px;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.form-content{
+    background-color: #FFFFFF;
+    margin: 30px 0 0;
+}
+
+.actions{
+    padding: 3rem 0 0;
+}
+

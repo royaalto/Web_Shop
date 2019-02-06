@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Cancel view{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'payment/style.css' %}">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<div class="page-container">
+
+    <div class="container">
+
+        {% block menu %}
+        {% include "temporary-menu-bar.html" %}
+        {% endblock %}
+
+        {% block header %}
+        <div class="header-bar row">
+            <div class="header-header col-sm-8"><h1>Logo/Header here</h1></div>
+            <div class="search-bar col-sm-4">{% include "temporary-search-bar.html" %}</div>
+        </div>
+        {% endblock %}
+
+        {% block navigation %}
+        {% include "temporary-navbar.html" %}
+        {% endblock %}
+
+        <div class="content">
+
+            <div class="text-center width-control">
+                <h2>Payment Canceled</h2>
+            <p>You have canceled payment</p>
+
+            <!--<div> website: {{ success }}</div>-->
+            </div>
+        </div>
+
+        {% block footer %}
+        <footer class="footer-bar">Footer bar</footer>
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}
+

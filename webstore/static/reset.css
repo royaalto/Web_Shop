@@ -1,0 +1,26 @@
+body,ul,ol,h1,h2,h3,h4,h5,h6,dl,dd,select,input,textarea,form,li,div{margin:0;padding:0}
+
+/* Why are header set to normal size?
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+*/
+
+/* remove default icon of list */
+ul,ol{list-style:none;}
+
+em{font-style: normal;}
+
+/* remove default underline */
+a{text-decoration:none;}
+
+
+/* remove border */
+img{border:0;}
+
+/* remove float */
+.clearfix:before,.clearfix:after{content:"";display:table}
+.clearfix:after{clear:both;}
+.clearfix{zoom:1}
+
+/* define float */
+.fl{float:left}
+.fr{float:right}

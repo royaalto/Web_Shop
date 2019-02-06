@@ -1,0 +1,99 @@
+
+{% extends "base.html" %}
+
+{% block title %}Play Page{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'game/desc.css' %}">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'reset.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock head%}
+
+
+{% block content %}
+<div class="page-container">
+
+    {% block menu %}
+    {% include "menu.html" %}
+    {% endblock menu%}
+
+    {% load default_blocks %}
+    {% show_header user%}
+
+    {% block navigation %}
+    {% include "navigation.html" %}
+    {% endblock navigation%}
+
+    <div class="game_con clearfix" >
+
+
+        <div class="game_trial fl">
+            <iframe id="game-frame" class="ifr" src="{{game.url}}"
+             name="bestgameever" width=800px height=600px scrolling="no">
+            </iframe>
+        </div>
+
+
+        <div class="game_description fr">
+            <p>
+                <strong>
+                  {{game.description}}
+                </strong>
+            </p>
+            {% if game.score_board%}
+            <p><a href="/game/score-board/{{game.id}}/"><button id="high-score-btn" class="btn btn-success">High Score</button></a> </p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            'use strict';
+            $(window).on('message', function(evt) {
+                // Messages from all origins are accepted
+                //  console.log(evt);
+                // Get data from sent message
+                var message = evt.originalEvent.data;
+                // Post the data to the server
+                message['game_id'] = '{{ game.id }}';
+                console.log(message);
+
+                var str_mess = JSON.stringify(message)
+
+
+                $.ajax({
+                    method: "POST",
+                    url: '/game/post/new-score/',
+                    data: {'message':str_mess},
+                    dataType: 'json',
+                    headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                    success: function(data) {
+                        console.log(data);
+
+                        if(data['message']){
+                            var iframe = document.getElementById("game-frame").contentWindow;
+                            iframe.postMessage(data['message'], '*');
+                        }
+
+                    },
+                    error: function(data,status) {
+                        console.log('post score failed, status: '+status);
+                        console.log(data);
+                    }
+                });
+            });
+
+
+        });
+    </script>
+
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock footer%}
+</div>
+
+{% endblock content%}

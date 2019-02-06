@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+
+{% block title %}Login view{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'account/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'reset.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="page-container">
+    {% block menu %}
+    {% include "menu.html" %}
+    {% endblock %}
+
+    <div class="login-container">
+        <div class="header-logo"><a href="http://{{ request.META.HTTP_HOST }}/"><img src="{% static 'home/logo.png' %}"></a></div>
+
+        <div class="form-content">
+            <form action="{{ form_action }}" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+                {% endfor %}
+                {% if form_message %}
+                <div class="alert {{ message_type }}">{{ form_message }}</div>
+                {% endif %}
+                <div class="form-actions">
+                    <div class=" links"><a class="forgot-password" href="#">Forgot you password?</a></div>
+
+                    <div class="actions">
+                        <input type="submit" class="btn btn-lg btn-success" value="Login"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

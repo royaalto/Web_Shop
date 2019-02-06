@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>{% block title %}Exercise template{% endblock %}</title>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="reset.css">
+    <!--{{% block header %}}
+    {% endblock %}-->
+</head>
+<body>
+
+<!--{{% block account %}}
+{% endblock %}
+
+{{% block header %}}
+{% endblock %}
+
+{{% block navigation %}}
+{% endblock %}
+
+{{% block content %}}-->
+
+<!--account and control bar-->
+
+<div class="header_con">
+  <div class="header">
+    <div class= "welcome fl"> Welcom to Melon Store! </div>
+
+
+    <div class="fr">
+      <!--already login in-->
+      <div class="login_info fl">Welcome:<em>Roy</em></div>
+
+      <div class="login_btn fl">
+        <a href="login.html">Login</a>
+        <span>|</span>
+        <a href="register.html">register</a>
+      </div>
+
+      <div class="user_link fl">
+        <span>|</span>
+        <a href="user_center_info.html">User Center</a>
+        <span>|</span>
+        <a href="cart.html">My Chart</a>
+        <span>|</span>
+        <a href="user_center_order.html">My Order</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--logo and search bar and chart-->
+<div class="search_bar clearfix">
+  <a href="index.html" class="logo fl"><img src="images/logo.png"></a>
+
+  <div class="search_con fl">
+    <!--logo and search bar and chart-->
+    <input type="text" class="input_text fl" name="" placeholder="Search Games">
+    <input type="button" class="input_btn fr" name="" value="Search">
+  </div>
+
+  <div class="guest_cart fr">
+    <a href="#" class="cart_name fl">My chart</a>
+    <div class="goods_count fl">1</div>
+  </div>
+</div>
+
+<!--Navi bar-->
+<div class="navbar_con">
+ <div class="navbar clearfix">
+  <!--game classifier-->
+  <div class="games_class fl">
+    <h1>All Games</h1>
+    <span></span>
+    <ul class="sub_games">
+      <li><a href="#" class="Action">Action</a></li>
+      <li><a href="#" class="Stratedy">Stratedy</a></li>
+      <li><a href="#" class="Sports">Sports</a></li>
+      <li><a href="#" class="RPG">RPG</a></li>
+    </ul>
+  </div>
+    <ul class="navlist fl">
+      <li><a href="#">Store Home</a></li>
+      <li class="interval">|</li>
+      <li><a href="#">Store Home</a></li>
+      <li class="interval">|</li>
+
+    </ul>
+
+
+ </div>
+</div>
+
+<div class="content">
+
+        <h2 class="fl" id>FEATURED & RECOMMENDED</h2>
+        <div class="slide">
+	         <div class="ft-carousel">
+		           <ul class="carousel-inner">
+			              <li class="carousel-item"><img src="http://cdn.edgecast.steamstatic.com/steam/apps/206440/capsule_616x353.jpg?t=1511581674" /></li>
+			              <li class="carousel-item"><img src="http://cdn.edgecast.steamstatic.com/steam/apps/207690/capsule_616x353.jpg?t=1511534434" /></li>
+			              <li class="carousel-item"><img src="http://cdn.edgecast.steamstatic.com/steam/apps/497640/capsule_616x353.jpg?t=1503236548" /></li>
+		           </ul>
+            </div>
+        </div>
+</div>
+
+<div class="footer">
+
+ <div class="foot_link">
+  <a href="#">About us</a>
+  <span>|</span>
+  <a href="#">Contact us</a>
+  <span>|</span>
+  <a href="#">Recruitement</a>
+  <span>|</span>
+  <a href="#">Link</a>
+ </div>
+  <p>CopyRight © 2018 MellonGames All Rights Reserved</p>
+  <p>Tel：046-****888</p>
+</div>
+
+
+<!--{% endblock %}
+
+{{% block footer %}}
+{% endblock %}-->
+<script src="js/jquery.min.js"></script>
+<script src="js/ft-carousel.min.js"></script>
+<script type="text/javascript">
+	$(".ft-carousel").FtCarousel();
+
+
+</script>
+</body></html>

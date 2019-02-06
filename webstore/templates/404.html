@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Page not found{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'reset.css' %}">
+<script src="{% static 'home/jquery.min.js' %}"></script>
+
+{% endblock %}
+
+{% block content %}
+<div class="page-container">
+
+    {% block menu %}
+    {% include "menu.html" %}
+    {% endblock %}
+
+    {% load default_blocks %}
+    {% show_header user%}
+
+    {% block navigation %}
+    {% include "navigation.html" %}
+    {% endblock %}
+    <div class="container">
+        <div class="content">
+
+            <h1>Oops!</h1>
+            <p>We cannot find the page you are looking for.</p>
+        </div>
+    </div>
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock %}
+
+</div>
+
+{% endblock %}

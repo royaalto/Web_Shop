@@ -1,0 +1,66 @@
+ {% extends "base.html" %}
+ {% block title %}Search Page{% endblock title%}
+
+ {% block head %}
+ {{ block.super }}
+ {% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'game/desc.css' %}">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'reset.css' %}">
+{% endblock head%}
+{% block content %}
+
+<div class="page-container">
+
+    {% block menu %}
+    {% include "menu.html" %}
+    {% endblock menu%}
+
+    {% load default_blocks %}
+    {% show_header user%}
+
+    {% block navigation %}
+    {% include "navigation.html" %}
+    {% endblock navigation%}
+
+    <div class="main_list ">
+        <div class="r_wrap  clearfix">
+            <ul class="goods_type_list clearfix">
+                {% if category %}
+                <h1>{{ category }}</h1>
+                {% endif %}
+                {% for game in game_list %}
+                <li>
+                    <a href="{{'/game/description/'}}{{game.id}}">
+                        {% if game.image2 %}
+                        <img style="width: 160px; height: 160px;"
+                             src="{{ game.image2.url }}" alt="Image not found" onerror="this.onerror=null;this.src='/static/media/square{{game.id}}.png';">
+
+                        {% else %}
+                        <img style="width: 160px; height: 160px;"
+                             src="/static/coming_soon_square.png">
+                        {% endif %}
+                    </a>
+                    <h4><a href="{{'/game/description/'}}{{game.id}}">{{game.name}}</a></h4>
+                    <div class="game-datas">
+                        <span class="prize">${{game.price}}</span>
+                    </div>
+                </li>
+                {% empty %}
+                     <div class="no-post">
+                        <p>{{ error_msg }}</p>
+                     </div>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock footer%}
+
+</div>
+
+{% endblock content%}

@@ -1,0 +1,222 @@
+/* collection */
+#collection_items {
+  max-width: 936px;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.collectionRow {
+  position: relative;
+  min-height: 70px;
+  margin-bottom: 15px;
+  padding: 8px 1%;
+  font-size: 15px;
+  color: #56707f;
+  background-color: #E8FFF5;
+}
+
+.collectionRow:hover {
+  background-color: rgba( 117, 204, 255, 0.3);
+}
+
+.collectionRow .bottom_controls {
+  left: 0;
+}
+
+.collectionRowLogo {
+  float: left;
+  width: 189px;
+  max-width: 40%;
+}
+
+.user_collection {
+  width: 500px;
+  margin: 0 auto;
+  padding: 0px 10px 10px;
+}
+.user_collection span{
+  font-size: 25px;
+  line-height: 20px;
+  font-weight: normal;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: 300;
+  /* light */
+  color: #666;
+
+}
+
+.collectionRow h4 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: normal;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: 300;
+  /* light */
+  color: #666;
+  padding-top: 4px;
+}
+
+.collectionRowItem {
+  text-align: left;
+  overflow: hidden;
+}
+
+.btnv6_blue_hoverfade {
+  border-radius: 2px;
+  border: none;
+  padding: 1px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none !important;
+  color: #67c1f5 !important;
+  background: rgba( 103, 193, 245, 0.2);
+}
+
+.btnv6_blue_hoverfade>span {
+  border-radius: 2px;
+  display: block;
+  background: transparent;
+}
+
+.btnv6_blue_hoverfade:hover {
+  background-color: #D9FFFF;
+}
+
+.pagenation {
+  height: 32px;
+  text-align: center;
+  font-size: 0;
+  margin: 30px auto;
+}
+
+.pagenation a {
+  display: inline-block;
+  border: 1px solid #d2d2d2;
+  background-color: #f8f6f7;
+  font-size: 12px;
+  padding: 7px 10px;
+  color: #666;
+  margin: 5px
+}
+
+.pagenation .active {
+  background-color: #fff;
+  color: #43a200
+}
+
+/* inventory */
+
+#inventory_items {
+	max-width:936px;
+	margin:0;
+	padding:0;
+	text-align:left;
+	padding-left:5px;
+	padding-top:5px;
+}
+
+
+.inventoryRow {
+	position: relative;
+	min-height: 70px;
+	margin-bottom: 15px;
+	padding: 8px 1%;
+
+	font-size: 15px;
+	color: #56707f;
+	background-color: #E8FFF5;
+}
+.inventoryRow:hover {
+	background-color: rgba( 117, 204, 255, 0.3);
+}
+
+.inventoryRow .bottom_controls {
+	left: 0;
+}
+
+.inventoryRowLogo {
+	float: left;
+	width: 189px;
+	max-width: 40%;
+}
+
+.user_inventory {
+  width: 500px;
+  margin: 0 auto;
+  padding: 0px 10px 10px;
+}
+.user_inventory span{
+  font-size: 25px;
+  line-height: 20px;
+  font-weight: normal;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: 300;
+  /* light */
+  color: #666;
+
+}
+
+.inventoryRow h4 {
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+	font-family: "Motiva Sans", Sans-serif;
+	font-weight: 300; /* light */
+
+	color: #666;
+	padding-top: 4px;
+}
+
+
+.inventoryRowItem {
+  text-align:left;
+	overflow: hidden;
+}
+
+
+.btnv6_blue_hoverfade {
+
+	border-radius: 2px;
+	border: none;
+	padding: 1px;
+	display: inline-block;
+	cursor: pointer;
+	text-decoration: none !important;
+	color: #67c1f5 !important;
+
+	background: rgba( 103, 193, 245, 0.2 );	}
+
+.btnv6_blue_hoverfade > span {
+	border-radius: 2px;
+	display: block;
+  background: transparent;
+}
+
+.btnv6_blue_hoverfade:hover {
+	background-color: #D9FFFF;
+}
+.pagenation {
+  height: 32px;
+  text-align: center;
+  font-size: 0;
+  margin: 30px auto;
+}
+
+.pagenation a {
+  display: inline-block;
+  border: 1px solid #d2d2d2;
+  background-color: #f8f6f7;
+  font-size: 12px;
+  padding: 7px 10px;
+  color: #666;
+  margin: 5px
+}
+
+.pagenation .active {
+  background-color: #fff;
+  color: #43a200
+}
+

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Edit view{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'game/desc.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'reset.css' %}">
+{% endblock head%}
+{% block content %}
+
+
+<div class="page-container">
+
+    {% block menu %}
+    {% include "menu.html" %}
+    {% endblock menu%}
+
+    {% load default_blocks %}
+    {% show_header user%}
+
+    {% block navigation %}
+    {% include "navigation.html" %}
+    {% endblock navigation%}
+
+    <div class="container">
+    <div class="content">
+        <h1>Edit Game</h1>
+        <div class="edit-form">
+            {% if form %}
+            <form action="{{ form_action}}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {% if field.help_text %}
+
+                    <img src="{% static 'account/help_icon.png' %}" data-toggle="tooltip" data-html="true" data-placement="right" title="{{ field.help_text|safe }}">
+                    {% endif %}
+                    {{ field }}
+                    {% if field.errors %}
+                    <div class="alert alert-warning">{{ field.errors }}</div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+                <div class="form-actions">
+                    <div class="actions">
+                        <button id="cancel-btn" class="btn btn-lg btn-success">Cancel</button>
+                        <input type="submit" class="btn btn-lg btn-success" value="Save" />
+                    </div>
+                </div>
+
+            </form>
+            <script>
+                $(document).ready(function() {
+                    $('[data-toggle="tooltip"]').tooltip();
+                });
+                document.getElementById("cancel-btn").onclick = function () {
+                    location.href = "/inventory/";
+                };
+            </script>
+            {% endif %}
+        </div>
+
+        </div>
+    </div>
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock footer%}
+</div>
+
+{% endblock content%}

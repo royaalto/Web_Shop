@@ -1,0 +1,37 @@
+{% load game_tags %}
+<div class="navbar_con">
+    <div class="navbar clearfix">
+    <!--game classifier-->
+    <div class="games_class fl">
+    <a href="/game/search/?q=+"><h2 id="class-title">All Games</h2></a>
+    {% get_categories as category_list %}
+    <ul class="sub_games">
+        {% for category in category_list %}
+        <li><a href="{% url 'category' category.pk %}">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+    </div>
+    <ul class="navlist fl">
+        <li><a href="http://{{ request.META.HTTP_HOST }}/">Store Home</a></li>
+        <li class="interval">|</li>
+        {% if user.is_superuser %}
+        <li><a href="http://{{ request.META.HTTP_HOST }}/collection/">My Collection</a></li>
+        <li class="interval">|</li>
+        <li><a href="http://{{ request.META.HTTP_HOST }}/inventory/">My Inventory</a></li>
+        <li class="interval">|</li>
+        {% elif user.groups.all.0.name == 'Player' %}
+        <li><a href="http://{{ request.META.HTTP_HOST }}/collection/">My Collection</a></li>
+        <li class="interval">|</li>
+        {% endif %}
+        {% if user.groups.all.0.name == 'Developer' %}
+        <li><a href="http://{{ request.META.HTTP_HOST }}/inventory/">Inventory</a></li>
+        <li class="interval">|</li>
+        {% endif %}
+
+        <li><a href="{{'/game/score-board/'}}">Score Board</a></li>
+        <li class="interval">|</li>
+    </ul>
+
+
+    </div>
+</div>

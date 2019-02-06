@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block header %}
+
+{% endblock %}
+
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+    <p>Hello, {{ user.username }}! You have logged in.</p>
+    {% else %}
+    <h2>Login please</h2>
+    <form action="{{ form_action }}" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+        </div>
+        {% endfor %}
+        <div class="login_message">{{ form_message }}</div>
+        <input type="submit" class="button main_button" value="Login"/>
+    </form>
+    {% endif %}
+
+{% endblock %}

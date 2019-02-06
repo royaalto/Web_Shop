@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}score board{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'reset.css' %}">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<div class="page-container">
+
+
+    {% block menu %}
+    {% include "menu.html" %}
+    {% endblock %}
+
+    {% load default_blocks %}
+    {% show_header user%}
+
+    {% block navigation %}
+    {% include "navigation.html" %}
+    {% endblock %}
+
+    {% block message %}
+    {% include "message.html" %}
+    {% endblock message%}
+
+    <div class="content">
+        <h2>Score Board</h2>
+
+        <table class="table" style="width:100%">
+            <tr class="th">
+                <th>Game Name</th>
+                <th>User</th>
+                <th>Score</th>
+                <th>Date</th>
+            </tr>
+
+            {% for item in scores %}
+            <tr class="td">
+                <td>{{item.game}}</td>
+                <td>{{item.user}}</td>
+                <td>{{item.score}}</td>
+                <td>{{item.date}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+
+    </div>
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock %}
+
+</div>
+{% endblock %}

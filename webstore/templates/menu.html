@@ -1,0 +1,25 @@
+<div class="menu">
+
+    <div class="menu-content">
+        <div class= "welcome fl"> Welcom to Melon Store! </div>
+
+        <div class="fr">
+            <!--already login in-->
+
+            <div class="login_btn fl">
+                {% if user.is_authenticated %}
+                {{user.username}}
+                <span>|</span>
+                <a href="http://{{ request.META.HTTP_HOST }}/account/logout/">Logout</a>
+                <span>|</span>
+                <a href="http://{{ request.META.HTTP_HOST }}/account/setting">My Settings</a>
+                {% else %}
+                <a href="http://{{ request.META.HTTP_HOST }}/account/login/">Login</a>
+                <span>|</span>
+                <a href="http://{{ request.META.HTTP_HOST }}/account/register">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</div>

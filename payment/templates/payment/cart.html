@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}Cart view{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'payment/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'reset.css' %}">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<div class="page-container">
+
+
+    {% block menu %}
+    {% include "menu.html" %}
+    {% endblock %}
+
+    {% block header %}
+    {% include "header.html" %}
+    {% endblock %}
+
+    {% block navigation %}
+    {% include "navigation.html" %}
+    {% endblock %}
+
+    {% block message %}
+    {% include "message.html" %}
+    {% endblock message%}
+
+    <div class="content">
+
+        <div id="payment-view" class="">
+            {% if item_count %}
+            <h2>Cart</h2>
+
+            <table class="cart">
+                <thead class="cart-header">
+                    <tr>
+                        <th class="th-product" colspan="2">Product</th>
+                        <th class="price">Price</th>
+                        <th class="qty">Quantity</th>
+                        <th class="sub">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr class="tr-item">
+                        <td class="td-item td-img" width="50">
+                            <a href="{{'/game/description/'}}{{item.game.id}}">
+                            {% if item.game.image2 %}
+                            <img style="width: 69px;height: 69px;" src="{{ item.game.image2.url }}"
+                            alt="Image not found" onerror="this.onerror=null;this.src='/static/media/square{{item.game.id}}.png';">
+                            {% else%}
+                            <img style="width: 69px;height: 69px;" src="/static/coming_soon_square.png">
+                            {% endif %}
+                            </a>
+                        </td>
+                        <td class="td-item td-name" width="">
+                            <a href="{{'/game/description/'}}{{item.game.id}}">{{ item.game.name }}</a></td>
+                        <td class="td-item price" width="10%">{{ item.game.price }}€</td>
+                        <td class="td-item qty" width="10%">{{ item.qty }}</td>
+                        <td class="td-item sub" width="15%">{{ item.subtotal }}€</td>
+                        <td class="td-item trash" width="4%">
+                            <div class="delete-item">
+                                <span class="item-id" style="display:none;">{{ item.pk }}</span>
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot class="cart-footer">
+                    <tr>
+                        <th colspan="3"></th>
+                        <th class="th-total" colspan="2">Total</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3"></td><td>{{ total_price }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-actions">
+                <div class="actions-btns">
+                    <button id="checkout_btn" class="btn btn-success">Checkout</button>
+                </div>
+                <script type="text/javascript">
+                    document.getElementById("checkout_btn").onclick = function () {
+                        location.href = "/payment/order";
+                    };
+                </script>
+            </div>
+            <script>
+                $(document).ready(function(){
+                    $(".delete-item").on("click", function() {
+
+                        var item_id = $(this).find(".item-id").text();
+                        console.log("delete item: " + item_id);
+
+                        $.ajax({
+                            method: "POST",
+                            url: '/payment/delete/item/',
+                            data: {item_id: item_id},
+                            dataType: 'json',
+                            headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                            success: function(data) {
+                                location.reload();
+                                console.log(data);
+                            },
+                            error: function(data,status) {
+                                console.log('delete item failed, status: '+status);
+                                console.log(data);
+                            }
+                        });
+                    });
+                });
+            </script>
+            {% else %}
+            <h2>Your cart is empty.</h2>
+            {% endif %}
+
+        </div>
+    </div>
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock %}
+
+</div>
+{% endblock %}

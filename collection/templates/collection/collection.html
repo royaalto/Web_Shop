@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}collection Page{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="{% static 'collection/style.css' %}">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'reset.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="page-container">
+
+    {% block menu %}
+    {% include "menu.html" %}
+    {% endblock %}
+
+    {% load default_blocks %}
+    {% show_header user%}
+
+    {% block navigation %}
+    {% include "navigation.html" %}
+    {% endblock %}
+    <div class="container">
+        <div class="content">
+
+            <div class="user_collection">
+            <span>My Collection</span>
+            </div>
+            <div id="collection_items">
+            {% for game in collection %}
+            <div class="collectionRow " id="game_260750">
+                <div class="collectionRowLogo">
+                    <a href="{{'/game/description/'}}{{game.id}}">
+                        {% if game.image %}
+                        <img style="width: 184px;height: 69px;"
+                             src="{{ game.image.url }}" alt="Image not found" onerror="this.onerror=null;this.src='/static/media/image{{game.id}}.png';">
+                        {% else %}
+                        <img style="width: 184px;height: 69px;"
+                                src="/static/coming_soon.png">
+                        {% endif %}
+                    </a>
+                </div>
+                <div class="collectionRowItem">
+                    <div class="gameListPriceData">
+                        <div class="storepage_btn_ctn">
+                            <a href="{{'/game/description/'}}{{game.id}}" class="btnv6_blue_hoverfade btn_small "><span>Visit Store Page</span></a>
+                        </div>
+                    </div>
+                    <h4 class="ellipsis">{{ game.name }}</h4>
+                    <div class="collection_added_on ellipsis">
+                        {% if game.count > 1%}
+                        Count of copies you own: <span>{{ game.count }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="play_button fr">
+                        <a href="{{'/game/play/'}}{{game.id}}" class="btnv6_blue_hoverfade btn_small "><span>Play</span></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+    </div>
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock %}
+
+</div>
+
+{% endblock %}
